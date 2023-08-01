@@ -1,0 +1,35 @@
+---
+import Logo from './Logo.astro';
+import SiteNav from './SiteNav.astro';
+import Toggle from './Toggle.svelte';
+interface Props {}
+---
+
+<header>
+  <Logo />
+  <Toggle client:only="svelte" />
+  <SiteNav
+    links={[
+      {
+        name: 'Home',
+        route: '/',
+        icon: 'home',
+      },
+      {
+        name: 'Resume',
+        route: '/resume',
+        icon: 'file-user',
+      },
+    ]}
+  />
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    box-shadow: 0 1rem 3rem -1rem rgba(var(--shadow-color), 0.1);
+  }
+
+</style>

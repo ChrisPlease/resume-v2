@@ -1,0 +1,58 @@
+---
+import Icon from '../Icon.svelte';
+---
+
+<dl class="contact">
+  <div>
+    <dt>
+      <Icon name="envelope" />
+    </dt>
+    <dd>
+      <a href="mailto:chris@chrisplease.me">chris@chrisplease.me</a>
+    </dd>
+  </div>
+  <div>
+    <dt>
+      <Icon type="brands" name="codepen" />
+    </dt>
+    <dd>
+      <a href="https://codepen.io/ChrisPlz">/ChrisPlz</a>
+    </dd>
+  </div>
+  <div>
+    <dt>
+      <Icon type="brands" name="github-alt" />
+    </dt>
+    <dd>
+      <a href="https://github.com/ChrisPlease">/ChrisPlease</a>
+    </dd>
+  </div>
+  <div>
+    <dt>
+      <Icon name="location-dot" />
+    </dt>
+    <dd>
+      Denver, CO
+    </dd>
+  </div>
+  <div>
+    <dt>
+      <Icon type="brands" name="linkedin-in" />
+    </dt>
+    <dd>
+      <a href="https://linkedin.com/in/ChrisPlease">/in/ChrisPlease</a>
+    </dd>
+  </div>
+</dl>
+
+<style is:inline>
+  .contact {
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact > div {
+    display: flex;
+    flex-flow: row;
+  }
+</style>
