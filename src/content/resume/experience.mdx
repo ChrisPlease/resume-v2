@@ -1,0 +1,13 @@
+---
+---
+import { getCollection } from 'astro:content';
+export const entries = getCollection('experience');
+async function foo () {
+  const foo = await entries;
+  console.log(entries);
+}
+
+
+## Experience
+
+{foo}
