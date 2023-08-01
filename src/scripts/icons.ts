@@ -9,22 +9,32 @@ import {
   faHome as falHome,
   faListTree as falListTree,
   faLocationDot as falLocationDot,
-  faMoon as falMoon,
   faPrint as falPrint,
   faRight as falRight,
-  faSun as falSun,
 } from '@fortawesome/pro-light-svg-icons'
 
 import {
+  faMoon as fasMoon,
+  faSun as fasSun,
+} from '@fortawesome/pro-solid-svg-icons';
+
+import {
+  faCodepen as fabCodepen,
   faGithub as fabGithub,
   faGithubAlt as fabGithubAlt,
   faLinkedin as fabLinkedin,
+  faLinkedinIn as fabLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(
+  fabCodepen,
   fabGithub,
   fabGithubAlt,
   fabLinkedin,
+  fabLinkedinIn,
+
+  fasMoon,
+  fasSun,
 
   falCheck,
   falEnvelope,
@@ -34,10 +44,8 @@ library.add(
   falHome,
   falListTree,
   falLocationDot,
-  falMoon,
   falPrint,
   falRight,
-  falSun,
 )
 
 dom.watch()
