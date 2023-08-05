@@ -16,7 +16,18 @@ import {
 import {
   faMoon as fasMoon,
   faSun as fasSun,
+  faCircle as fasCircle,
+  faArrowRight as fasArrowRight,
 } from '@fortawesome/pro-solid-svg-icons';
+
+import {
+  faEnvelope as farEnvelope,
+  faLocationDot as farLocationDot,
+} from '@fortawesome/pro-regular-svg-icons';
+
+import {
+  faEnvelope as fadEnvelope
+} from '@fortawesome/pro-duotone-svg-icons';
 
 import {
   faCodepen as fabCodepen,
@@ -33,6 +44,10 @@ library.add(
   fabLinkedin,
   fabLinkedinIn,
 
+  fadEnvelope,
+
+  fasArrowRight,
+  fasCircle,
   fasMoon,
   fasSun,
 
@@ -46,6 +61,9 @@ library.add(
   falLocationDot,
   falPrint,
   falRight,
+
+  farEnvelope,
+  farLocationDot,
 )
 
 dom.watch()
