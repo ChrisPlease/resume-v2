@@ -1,0 +1,19 @@
+{
+  "company": "Ideas By Nature",
+  "title": "Lead Engineer",
+  "location": "Denver, CO",
+  "responsibilities": [
+    "Worked on various internal projects and decentralized applications on the Ethereum blockchain",
+    "Helped establish internal best practices relating to front end development and mobile application development",
+    "Interaction with Web3 and the Ethereum blockchain, and the MetaMask wallet",
+    {
+      "Libraries included:": [
+        "Web3 v1",
+        "React Native",
+        "React v16"
+      ]
+    }
+  ],
+  "startDate": "2018-06-31T00:00:00Z",
+  "endDate": "2019-01-31T00:00:00Z"
+}

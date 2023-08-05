@@ -1,0 +1,25 @@
+{
+  "company": "Kenzan Media",
+  "title": "Front end engineer",
+  "location": "Denver, CO",
+  "responsibilities": [
+    "Worked on various applications including data-driven, feature-rich internal projects to large scale client web applications driven through micro-service architectures",
+    {
+      "Utilized front-end technologies including:": [
+        "Angular 1.x and React",
+        "ECMAScript 5 & 6",
+        "CSS/SASS/LESS",
+        "HTML5"
+      ]
+    }, {
+      "Earned some experience with full stack development:": [
+        "Express",
+        "MongoDB",
+        "Loopback",
+        "AWS"
+      ]
+    }
+  ],
+  "startDate": "2015-11-01T00:00:00.000Z",
+  "endDate": "2018-06-30T00:00:00.000Z"
+}
