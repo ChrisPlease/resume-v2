@@ -3,6 +3,4 @@ title: Introduction
 sortOrder: 1
 ---
 
-Thanks for taking the time to look at me resumé.
-
-My name is Chris. I'm a dedicated and passionate front end engineer. With over 10 years experience, I've toodled and foodled. I've used the whole kit and kaboodle.
+Dedicated and passionate engineer specializing in Front End Javascript development for large scale web and mobile applications. Specializing in styles, accessibility, responsivity, and cross browser compatibility. Experienced primarily in front end development, but full stack experience with NodeJS.

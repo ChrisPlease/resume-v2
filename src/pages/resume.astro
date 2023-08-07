@@ -1,18 +1,172 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Experience from '../components/resume/Experience.astro';
 import { getCollection } from 'astro:content';
 
-const entries = await getCollection('resume');
+const resume = (await getCollection('resume'))
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+
+const experience = (await getCollection('experience'))
+  .sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
 ---
 
-<Layout title="resume">
-  {entries.map(async (item) => {
-    const { Content } = await item.render()
-    return (
-      <div>
-        <Content />
-      </div>
-    )
-  })}
+<Layout title="Chris Pruyne | Software Engineer">
+    {resume.map(async (item) => {
+      const { Content } = await item.render()
+      if (item.slug !== 'experience') {
+        return (
+          <div class="resume-section">
+            <div class="resume-section--meta">
+              <h2>{item.data.title}</h2>
+              {
+                item.data.subtitle
+                  ? <h3 class="resume-section--subtitle">{item.data.subtitle}</h3>
+                  : null
+              }
+            </div>
+            <div class="resume-section--description">
+              <div class="resume-section--body">
+                <Content />
+              </div>
+            </div>
+          </div>
+        )
+      }
+
+      return (
+          <div class="resume-section">
+            <div class="resume-section--meta">
+              <h2 class="resume-section--experience-title">{item.data.title}</h2>
+            </div>
+            <div class="resume-section--description">
+              <div class="resume-section--body">
+                <Content />
+              </div>
+            </div>
+          </div>
+          <>
+            {experience.map(async (item) => {
+                return <div class="resume-section"><Experience data={item} /></div>
+            })}
+          </>
+      )
+    })}
 </Layout>
 
+<style>
+  .resume-section--meta h2,
+  .resume-section--meta h3 {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .resume-section--subtitle {
+    color: rgb(var(--text-alt-color));
+  }
+
+  @media screen {
+    .resume-section {
+      min-height: 100vh;
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      scroll-snap-align: start;
+    }
+  }
+
+@media screen and (min-width: 800px) {
+    body {
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgb(var(--text-color)),
+          rgb(var(--text-color)) 25%,
+          transparent 25%,
+          transparent
+        ) repeat-y 3rem 0/1.5rem 1.5rem,
+        repeating-linear-gradient(
+          45deg,
+          rgb(var(--text-color)),
+          rgb(var(--text-color)) 25%,
+          transparent 25%,
+          transparent
+        ) repeat-y 3rem 0/1.5rem 1.5rem,
+        repeating-linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3) 25%,
+          transparent 35%,
+          transparent
+        ) repeat-y 3rem 0/1.5rem 1.5rem,
+        repeating-linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3) 25%,
+          transparent 35%,
+          transparent
+        ) repeat-y 3rem 0/1.5rem 1.5rem,
+        repeating-linear-gradient(
+          -135deg,
+          rgb(var(--bg-color)),
+          rgb(var(--bg-color)) 25%,
+          transparent 25%,
+          transparent
+        ) repeat-y 3rem 1rem/1.5rem 1.5rem,
+        repeating-linear-gradient(
+          -45deg,
+          rgb(var(--bg-color)),
+          rgb(var(--bg-color)) 25%,
+          transparent 25%,
+          transparent
+        ) repeat-y 3rem 1rem/1.5rem 1.5rem,
+        repeating-linear-gradient(
+          -135deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3) 25%,
+          transparent 35%,
+          transparent
+        ) repeat-y 3rem 1rem/1.5rem 1.5rem,
+        repeating-linear-gradient(
+          -45deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3) 25%,
+          transparent 35%,
+          transparent
+        ) repeat-y 3rem 1rem/1.5rem 1.5rem,
+        linear-gradient(
+          to right,
+          rgb(var(--text-color)),
+          rgb(var(--text-color)) 3rem,
+          rgb(var(--link-hover-color)) 3rem,
+          rgb(var(--link-color))
+        ) repeat-y 0 0/4.5rem 100%,
+        rgb(var(--bg-color));
+    }
+    .resume-section {
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      column-gap: 2rem;
+      align-items: center;
+    }
+
+    .resume-section--meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .resume-section--description {
+      border-left: 1px solid red;
+    }
+  }
+
+  @media print {
+    .resume-section {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgb(var(--text-alt-color));
+    }
+  }
+</style>

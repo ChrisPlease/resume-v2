@@ -15,21 +15,20 @@ interface Props {
 const { links } = Astro.props satisfies Props;
 ---
 
-<nav>
+<nav class="site-nav">
   <ul>
     {
       links.map(
         ({ name, route, icon }: Link) => (
-          <li>
+          <li class="nav-item">
             <a
               class:list={[
-                'nav-item',
                 { active: Astro.url.pathname === route }
               ]}
               href={route}
             >
-              { icon ? <Icon name={icon} /> : null}
-              {name}
+              {icon ? <Icon name={icon} /> : null}
+              <span class="sr-only">{name}</span>
             </a>
           </li>
         )
@@ -39,30 +38,36 @@ const { links } = Astro.props satisfies Props;
 </nav>
 
 <style>
+  .site-nav {
+    margin: 1rem;
+  }
+
   ul {
     list-style-type: none;
-    margin: 0 2rem 0 0;
+    margin: 0;
     padding: 0;
     display: flex;
   }
 
   .nav-item {
-    margin-right: 0.25rem;
-    border-radius: 0.5rem;
+    border-radius: 9999px;
+    overflow: hidden;
   }
 
-  a {
+  .nav-item:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+
+  .site-nav a {
     display: block;
-    color: white;
     text-decoration: none;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.125rem;
+    padding: 0.25rem 1rem;
     transition: background 200ms linear;
-    color: rgb(var(--link-color));
+    color: rgb(var(--text-color));
   }
 
-  a:hover,
-  a.active {
+  .site-nav a:hover,
+  .site-nav a.active {
     color: rgb(var(--text-color));
     background: rgba(var(--text-color), 0.15);
   }

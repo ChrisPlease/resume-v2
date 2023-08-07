@@ -2,6 +2,9 @@
   import Icon from './Icon.svelte';
 
   let currentTheme = document.documentElement.getAttribute('data-theme');
+  let className = '';
+
+  export { className as class }
 
   function handleChange(theme: string) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -11,7 +14,7 @@
   }
 </script>
 
-<div class="toggle-container">
+<div class={`toggle-container ${className}`}>
   <span class="sr-only">
     Switch Theme
   </span>
@@ -21,7 +24,7 @@
     class:active={currentTheme === 'light'}
     on:click={() => handleChange('light')} type="button"
   >
-    <Icon type="solid" size="lg" name="sun" />
+    <Icon type="solid" name="sun" />
     <span class="sr-only">Set Light Theme</span>
   </button>
 
@@ -30,7 +33,7 @@
     class:active={currentTheme === 'dark'}
     on:click={() => handleChange('dark')} type="button"
   >
-    <Icon type="solid" size="lg" name="moon" />
+    <Icon type="solid" name="moon" />
     <span class="sr-only">Set Dark Theme</span>
   </button>
 </div>
@@ -39,8 +42,8 @@
   .toggle-container {
     display: flex;
     align-items: stretch;
-    margin-right: 2rem;
-    border-radius: 0.5rem;
+    margin-right: 1rem;
+    border-radius: 9999rem;
     overflow: hidden;
     border: 1px solid rgba(var(--text-color), 0.15);
   }
@@ -67,11 +70,11 @@
   }
 
   .light.active {
-    background-position: 100%;
+    background-position: 101%;
   }
 
   .dark.active {
-    background-position: 0%;
+    background-position: -1%;
   }
 
   .dark {

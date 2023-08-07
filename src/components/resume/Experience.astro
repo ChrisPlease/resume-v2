@@ -1,0 +1,162 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  data: CollectionEntry<'experience'>
+}
+
+const { data: { data } } = Astro.props satisfies Props;
+
+function handleTime(startDate: string, endDate?: string): string {
+  const start = new Date(startDate)
+  const end = endDate ? new Date(endDate) : new Date()
+
+
+  const timeDiff = (end.getTime() - start.getTime()) / 1000
+  const timeDiffInDays = Math.round(timeDiff / 60 / 60 / 24)
+  const timeDiffInYears = Math.round((timeDiffInDays / 365) * 10) / 10;
+  const years = Math.floor(timeDiffInYears);
+  const months = Math.ceil((Math.round((timeDiffInYears % 1) * 10) / 10) * 12);
+
+  return `P${
+      years > 0 ? `${years}Y` : ''
+    }${
+      months > 0 ? `${months}M` : ''
+    }`;
+}
+---
+
+<div class="experience-section">
+  <div class="experience-section--meta">
+    <h2 class="experience-section--company">{data.company}</h2>
+    <h3 class="experience-section--title">{data.title}</h3>
+    <time datetime={handleTime(data.startDate, data.endDate)}>
+      <span>
+        {
+          Intl.DateTimeFormat(
+            'en-US',
+            {
+              month: '2-digit',
+              year: 'numeric',
+            }).format(new Date(data.startDate))
+        }
+      </span>
+      <i class="fa-solid fa-arrow-right" />
+      <span>
+        {
+          data.endDate !== ''
+            ? Intl.DateTimeFormat(
+                'en-US',
+                {
+                  month: '2-digit',
+                  year: 'numeric',
+                }).format(new Date(data.endDate))
+            : 'Current'
+        }
+      </span>
+    </time>
+    <address>{data.location}</address>
+  </div>
+  <div class="experience-section--content">
+    {data.description ? (
+      <div class="experience-section--description">
+        {data.description}
+      </div>
+    ) : null}
+    <ul class="responsibilities">
+      {
+        data.responsibilities
+          .map(resp => typeof resp === 'string'
+            ? <li>{resp}</li>
+            : Object.keys(resp).map((key) => {
+              return (
+                <li>
+                  {key}
+                  <ul>
+                    {resp[key].map(i => <li>{i}</li>)}
+                  </ul>
+                </li>
+              )
+            }))
+      }
+    </ul>
+  </div>
+</div>
+
+<script>
+  const foo = document.querySelectorAll('.experience-section');
+
+  const observer = new IntersectionObserver((entry) => {
+    console.log(entry)
+    entry.forEach(e => {
+      if (e.isIntersecting) {
+        console.log(e.intersectionRatio);
+        console.log('intersecting', e.target)
+      }
+    })
+  })
+
+  foo.forEach(item => observer.observe(item))
+</script>
+
+<style>
+
+  .experience-section--company,
+  .experience-section--title {
+    font-weight: 400;
+    margin: 0 0 0.5rem;
+  }
+
+  .experience-section--title {
+    color: rgb(var(--text-alt-color));
+  }
+
+  @media screen and (min-width: 800px) {
+    .experience-section {
+      grid-column: 1 / span 2;
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      column-gap: 3rem;
+      position: static;
+
+    }
+  }
+
+</style>
+
+<style>
+
+  .experience-section--meta,
+  .experience-section--content {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+
+  .experience-section--meta {
+    flex-flow: column;
+    align-items: flex-end;
+    position: sticky;
+    top: 1px;
+  }
+
+  .experience-section--title,
+  .experience-section--company {
+    font-weight: 400;
+    margin: 0 0 0.5rem;
+  }
+
+  .experience-section--title .title {
+    font-size: 80%;
+    color: rgb(var(--text-alt-color));
+  }
+
+  .responsibilities {
+    font-size: 90%;
+    color: rgb(var(--text-alt-color));
+  }
+
+  li:has(ul) {
+    list-style-type: none;
+  }
+</style>

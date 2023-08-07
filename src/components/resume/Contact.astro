@@ -2,57 +2,100 @@
 import Icon from '../Icon.svelte';
 ---
 
-<dl class="contact">
-  <div>
-    <dt>
-      <Icon name="envelope" />
-    </dt>
-    <dd>
-      <a href="mailto:chris@chrisplease.me">chris@chrisplease.me</a>
-    </dd>
-  </div>
-  <div>
-    <dt>
-      <Icon type="brands" name="codepen" />
-    </dt>
-    <dd>
-      <a href="https://codepen.io/ChrisPlz">/ChrisPlz</a>
-    </dd>
-  </div>
-  <div>
-    <dt>
-      <Icon type="brands" name="github-alt" />
-    </dt>
-    <dd>
-      <a href="https://github.com/ChrisPlease">/ChrisPlease</a>
-    </dd>
-  </div>
-  <div>
-    <dt>
-      <Icon name="location-dot" />
-    </dt>
-    <dd>
+<div>
+  <ul class="contact">
+    <li>
+      <span class="icon-container">
+        <i class="fa-regular fa-envelope fa-lg fa-fw"/>
+      </span>
+      <a class="contact-link" href="mailto:chris@chrisplease.me">chris@chrisplease.me</a>
+    </li>
+    <li>
+      <span class="icon-container">
+        <i class="fa-brands fa-codepen fa-lg fa-fw" />
+      </span>
+      <a class="contact-link" href="https://codepen.io/ChrisPlz">ChrisPlz</a>
+    </li>
+    <li>
+      <span class="icon-container">
+        <i class="fa-brands fa-github-alt fa-lg fa-fw" />
+      </span>
+      <a class="contact-link" href="https://github.com/ChrisPlease">ChrisPlease</a>
+    </li>
+    <li>
+      <span class="icon-container">
+        <i class="fa-brands fa-linkedin-in fa-lg fa-fw" />
+      </span>
+      <a class="contact-link" href="https://linkedin.com/in/ChrisPlease">ChrisPlease</a>
+    </li>
+    <li>
+      <span class="icon-container">
+        <i class="fa-regular fa-location-dot fa-lg fa-fw" />
+      </span>
       Denver, CO
-    </dd>
-  </div>
-  <div>
-    <dt>
-      <Icon type="brands" name="linkedin-in" />
-    </dt>
-    <dd>
-      <a href="https://linkedin.com/in/ChrisPlease">/in/ChrisPlease</a>
-    </dd>
-  </div>
-</dl>
+    </li>
+  </ul>
+</div>
 
 <style is:inline>
   .contact {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
-  .contact > div {
+  .contact li {
     display: flex;
-    flex-flow: row;
+    align-items: center;
+    margin: 0.125rem 0;
+    background: linear-gradient(
+      to right,
+      rgb(var(--bg-alt-color)),
+      rgba(var(--bg-alt-color), 0)
+    );
+    border-radius: 999px;
   }
+
+  .contact-link {
+    text-decoration: none;
+    display: block;
+    color: rgb(var(--link-color));
+  }
+
+  .icon-container {
+    width: 2rem;
+    height: 2rem;
+    color: rgb(var(--bg-color));
+    background: linear-gradient(
+      35deg,
+      rgb(var(--link-color)),
+      rgb(var(--link-hover-color))
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    margin-right: 0.5rem;
+    box-shadow: 0 2px 2px rgba(var(--shadow-color), 0.25);
+  }
+
+
+  @media print {
+    .contact-link::after{
+      content: " (" attr(href) ") ";
+    }
+  }
+
+  @media screen {
+    .contact-link {
+      color: transparent;
+      text-decoration: none;
+      background: linear-gradient(to right, rgb(var(--link-color)), rgb(var(--link-hover-color)));
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+  }
+
 </style>
