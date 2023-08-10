@@ -1,100 +1,105 @@
----
-import Icon from '../Icon.svelte';
----
 
-<div>
-  <ul class="contact">
-    <li>
-      <span class="icon-container">
+<ul class="contact-list">
+  <li class="contact-item">
+    <a class="contact-link" href="mailto:chris@chrisplease.me">
+      <span class="contact-icon-container">
         <i class="fa-regular fa-envelope fa-lg fa-fw"/>
       </span>
-      <a class="contact-link" href="mailto:chris@chrisplease.me">chris@chrisplease.me</a>
-    </li>
-    <li>
-      <span class="icon-container">
+      <span class="contact-link-text">
+        chris@chrisplease.me
+      </span>
+    </a>
+  </li>
+  <li class="contact-item">
+    <a class="contact-link" href="https://codepen.io/ChrisPlz">
+      <span class="contact-icon-container">
         <i class="fa-brands fa-codepen fa-lg fa-fw" />
       </span>
-      <a class="contact-link" href="https://codepen.io/ChrisPlz">ChrisPlz</a>
-    </li>
-    <li>
-      <span class="icon-container">
+      <span class="contact-link-text">
+        ChrisPlz
+      </span>
+    </a>
+  </li>
+  <li class="contact-item">
+    <a class="contact-link" href="https://github.com/ChrisPlease">
+      <span class="contact-icon-container">
         <i class="fa-brands fa-github-alt fa-lg fa-fw" />
       </span>
-      <a class="contact-link" href="https://github.com/ChrisPlease">ChrisPlease</a>
-    </li>
-    <li>
-      <span class="icon-container">
+      <span class="contact-link-text">
+        ChrisPlease
+      </span>
+    </a>
+  </li>
+  <li class="contact-item">
+    <a class="contact-link" href="https://linkedin.com/in/ChrisPlease">
+      <span class="contact-icon-container">
         <i class="fa-brands fa-linkedin-in fa-lg fa-fw" />
       </span>
-      <a class="contact-link" href="https://linkedin.com/in/ChrisPlease">ChrisPlease</a>
-    </li>
-    <li>
-      <span class="icon-container">
-        <i class="fa-regular fa-location-dot fa-lg fa-fw" />
+      <span class="contact-link-text">
+        ChrisPlease
       </span>
-      Denver, CO
-    </li>
-  </ul>
-</div>
+    </a>
+  </li>
+</ul>
 
 <style is:inline>
-  .contact {
+  .contact-list {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
   }
 
-  .contact li {
+  .contact-item {
     display: flex;
     align-items: center;
     margin: 0.125rem 0;
-    background: linear-gradient(
-      to right,
-      rgb(var(--bg-alt-color)),
-      rgba(var(--bg-alt-color), 0)
-    );
     border-radius: 999px;
   }
 
   .contact-link {
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
     color: rgb(var(--link-color));
   }
 
-  .icon-container {
-    width: 2rem;
-    height: 2rem;
-    color: rgb(var(--bg-color));
-    background: linear-gradient(
-      35deg,
-      rgb(var(--link-color)),
-      rgb(var(--link-hover-color))
-    );
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    margin-right: 0.5rem;
-    box-shadow: 0 2px 2px rgba(var(--shadow-color), 0.25);
-  }
-
-
-  @media print {
-    .contact-link::after{
-      content: " (" attr(href) ") ";
-    }
+  .contact-link-text {
+    width: 0;
+    display: block;
+    overflow: hidden;
   }
 
   @media screen {
-    .contact-link {
-      color: transparent;
-      text-decoration: none;
-      background: linear-gradient(to right, rgb(var(--link-color)), rgb(var(--link-hover-color)));
-      background-clip: text;
-      -webkit-background-clip: text;
+    .contact-list {
+      display: flex;
+      justify-content: start;
+    }
+
+    .contact-icon-container {
+      width: 2rem;
+      height: 2rem;
+      color: rgb(var(--bg-color));
+      background: linear-gradient(
+        35deg,
+        rgb(var(--link-color)),
+        rgb(var(--link-hover-color))
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      margin-right: 0.5rem;
+      box-shadow: 0 2px 2px rgba(var(--shadow-color), 0.25);
+    }
+  }
+
+  @media print {
+    .contact-icon-container {
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+
+    .contact-link::after{
+      content: attr(href);
     }
   }
 

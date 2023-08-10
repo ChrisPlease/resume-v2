@@ -55,7 +55,12 @@ function handleTime(startDate: string, endDate?: string): string {
         }
       </span>
     </time>
-    <address>{data.location}</address>
+    <address>
+      <i class="fa-light fa-location-dot" />
+      <span>
+        {data.location}
+      </span>
+    </address>
   </div>
   <div class="experience-section--content">
     {data.description ? (
@@ -100,31 +105,19 @@ function handleTime(startDate: string, endDate?: string): string {
 </script>
 
 <style>
-
   .experience-section--company,
   .experience-section--title {
     font-weight: 400;
-    margin: 0 0 0.5rem;
+  }
+
+  .experience-section--company {
+    margin-bottom: 0;
   }
 
   .experience-section--title {
     color: rgb(var(--text-alt-color));
+    margin-bottom: 0.25rem;
   }
-
-  @media screen and (min-width: 800px) {
-    .experience-section {
-      grid-column: 1 / span 2;
-      display: grid;
-      grid-template-columns: 30% 1fr;
-      column-gap: 3rem;
-      position: static;
-
-    }
-  }
-
-</style>
-
-<style>
 
   .experience-section--meta,
   .experience-section--content {
@@ -135,9 +128,6 @@ function handleTime(startDate: string, endDate?: string): string {
 
   .experience-section--meta {
     flex-flow: column;
-    align-items: flex-end;
-    position: sticky;
-    top: 1px;
   }
 
   .experience-section--title,
@@ -146,17 +136,41 @@ function handleTime(startDate: string, endDate?: string): string {
     margin: 0 0 0.5rem;
   }
 
-  .experience-section--title .title {
-    font-size: 80%;
-    color: rgb(var(--text-alt-color));
-  }
-
   .responsibilities {
-    font-size: 90%;
+    font-size: 85%;
     color: rgb(var(--text-alt-color));
+    padding-left: 20px;
   }
 
   li:has(ul) {
     list-style-type: none;
+  }
+
+  address .svg-inline--fa {
+    color: rgb(var(--link-color));
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  @media screen and (min-width: 800px) {
+    .experience-section {
+      grid-column: 1 / span 2;
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      column-gap: 2rem;
+      position: static;
+
+    }
+
+    .experience-section--meta {
+      align-items: flex-end;
+    }
+
+    .experience-section--content {
+      border-left: 1px solid rgba(var(--text-alt-color), 0.5);
+      padding: 2rem 0 2rem 2rem;
+    }
   }
 </style>

@@ -9,8 +9,8 @@
     {
       "Libraries included:": [
         "Web3 v1",
-        "React Native",
-        "React v16"
+        "React & React Native",
+        "MetaMask"
       ]
     }
   ],

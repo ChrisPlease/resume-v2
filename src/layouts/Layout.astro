@@ -43,7 +43,6 @@ const { title } = Astro.props;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
-    color: rgba(var(--text-color), .85);
   }
 
   html {
@@ -91,13 +90,13 @@ const { title } = Astro.props;
       display: flex;
       flex-direction: column;
       justify-content: start;
-      height: 100vh;
+      min-height: 100vh;
       overflow: scroll;
     }
 
     html,
     body {
-      scroll-snap-type: y proximity;
+      scroll-snap-type: y mandatory;
     }
 
     a:link,
@@ -112,4 +111,11 @@ const { title } = Astro.props;
       color: rgb(var(--link-hover-color));
     }
   }
+
+  @media print {
+    :root {
+      font-size: 10pt;
+    }
+  }
+
 </style>
