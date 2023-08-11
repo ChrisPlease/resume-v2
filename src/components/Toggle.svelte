@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Icon from './Icon.svelte';
-
   let currentTheme = document.documentElement.getAttribute('data-theme');
   let className = '';
 
@@ -24,7 +22,7 @@
     class:active={currentTheme === 'light'}
     on:click={() => handleChange('light')} type="button"
   >
-    <Icon type="solid" name="sun" />
+    <i class="fa-solid fa-sun" />
     <span class="sr-only">Set Light Theme</span>
   </button>
 
@@ -33,7 +31,7 @@
     class:active={currentTheme === 'dark'}
     on:click={() => handleChange('dark')} type="button"
   >
-    <Icon type="solid" name="moon" />
+    <i class="fa-solid fa-moon" />
     <span class="sr-only">Set Dark Theme</span>
   </button>
 </div>

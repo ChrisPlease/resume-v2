@@ -1,0 +1,145 @@
+<color-picker class="color-picker">
+  <button type="button" class="color-picker--button">
+    <span class="sr-only">
+      Change the color
+    </span>
+  </button>
+  <color-select class="color-picker--panel">
+    <span class="sr-only">
+      Select a new color
+    </span>
+    <ul class="color-picker--select-list">
+      <li>
+        <button class="color-picker--select-button" value="green">
+          <span class="sr-only">Green</span>
+        </button>
+      </li>
+      <li>
+        <button class="color-picker--select-button" value="blue">
+          <span class="sr-only">Blue</span>
+        </button>
+      </li>
+      <li>
+        <button class="color-picker--select-button" value="red">
+          <span class="sr-only">Red</span>
+        </button>
+      </li>
+    </ul>
+  </color-select>
+</color-picker>
+
+<script>
+  const btnSelectors = document.querySelectorAll<HTMLButtonElement>('.color-picker--select-button');
+  const currentColor = document.documentElement.getAttribute('data-color');
+
+  btnSelectors.forEach((item) => {
+    if (item.value === currentColor) {
+      addNewClass(item, 'is-active');
+    }
+
+    item.style.background = `linear-gradient(
+      35deg,
+      rgb(var(--accent-${item.value}-1)),
+      rgb(var(--accent-${item.value}-2))
+    )`
+  })
+
+  class ColorPicker extends HTMLElement {
+    constructor() {
+      super();
+
+      const toggle = this.querySelector('.color-picker--button')!;
+      const panel = this.querySelector('.color-picker--panel')!;
+
+      toggle.addEventListener('click', (e: Event) => {
+        panel.classList.toggle('is-open');
+      });
+    }
+  }
+
+  class ColorPickerSelect extends HTMLElement {
+    constructor() {
+      super();
+
+      this.addEventListener('click', (e: Event) => {
+        const target = e.target as HTMLButtonElement;
+
+        if (target?.value) {
+          resetClasses(btnSelectors, 'is-active');
+          resetClasses(this, 'is-open');
+          addNewClass(target, 'is-active');
+
+          document.documentElement.setAttribute('data-color', target.value);
+          localStorage.setItem('color', target.value);
+        }
+      });
+    }
+  }
+
+  function resetClasses(btns: NodeListOf<HTMLElement> | HTMLElement, className: string)  {
+
+    if (btns instanceof HTMLElement) {
+      btns.classList.remove(className);
+    } else {
+      btns.forEach(btn => btn.classList.remove(className))
+    }
+  }
+
+  function addNewClass(item: HTMLButtonElement, className: string) {
+    item.classList.add(className);
+  }
+
+  customElements.define('color-picker', ColorPicker);
+  customElements.define('color-select', ColorPickerSelect);
+</script>
+
+<style>
+.color-picker {
+  position: relative;
+}
+
+.color-picker--button,
+.color-picker--select-button {
+  background: linear-gradient(
+    35deg,
+    rgb(var(--link-color)),
+    rgb(var(--link-hover-color))
+  );
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+  border: 0.25rem solid rgb(var(--bg-alt-color));
+}
+
+.color-picker--button,
+.color-picker--select-button {
+  cursor: pointer;
+}
+
+.color-picker--panel {
+  overflow: hidden;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.color-picker--panel.is-open {
+  display: block;
+}
+
+.color-picker--select-list {
+  list-style-type: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.color-picker--select-button {
+  transform: scale(0.7);
+}
+
+.color-picker--select-button.is-active {
+  transform: scale(1);
+}
+</style>

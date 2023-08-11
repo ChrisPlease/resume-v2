@@ -89,11 +89,11 @@ function handleTime(startDate: string, endDate?: string): string {
 </div>
 
 <script>
-  const foo = document.querySelectorAll('.experience-section');
+  const sections = document.querySelectorAll('.experience-section')[0];
 
   const observer = new IntersectionObserver((entry) => {
-    console.log(entry)
     entry.forEach(e => {
+      console.log(e);
       if (e.isIntersecting) {
         console.log(e.intersectionRatio);
         console.log('intersecting', e.target)
@@ -101,7 +101,8 @@ function handleTime(startDate: string, endDate?: string): string {
     })
   })
 
-  foo.forEach(item => observer.observe(item))
+  observer.observe(sections);
+  // sections.forEach(item => observer.observe(item))
 </script>
 
 <style>
@@ -112,6 +113,14 @@ function handleTime(startDate: string, endDate?: string): string {
 
   .experience-section--company {
     margin-bottom: 0;
+    background: linear-gradient(
+      to right,
+      rgb(var(--link-color)),
+      rgb(var(--link-hover-color))
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
   .experience-section--title {
@@ -139,7 +148,13 @@ function handleTime(startDate: string, endDate?: string): string {
   .responsibilities {
     font-size: 85%;
     color: rgb(var(--text-alt-color));
-    padding-left: 20px;
+    padding-left: 1rem;
+  }
+
+  .responsibilities ul {
+    font-size: 95%;
+    padding-left: 1rem;
+    margin: 0 0 0.5rem 0;
   }
 
   li:has(ul) {

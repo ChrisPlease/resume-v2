@@ -140,8 +140,15 @@ const experience = (await getCollection('experience'))
           to right,
           rgb(var(--text-color)),
           rgb(var(--text-color)) 3rem,
-          rgb(var(--link-hover-color)) 3rem,
-          rgb(var(--link-color))
+          transparent 3rem,
+          transparent
+          /* rgb(var(--link-hover-color)) 3.01rem,
+          rgb(var(--link-color)) */
+        ) repeat-y 0 0/4.5rem 100%,
+        linear-gradient(
+          to bottom,
+          rgb(var(--link-color)),
+          rgb(var(--link-hover-color))
         ) repeat-y 0 0/4.5rem 100%,
         rgb(var(--bg-color));
     }

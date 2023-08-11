@@ -23,6 +23,7 @@ const { title } = Astro.props;
     <script is:inline>
       const mql = window.matchMedia('(prefers-color-scheme: light)');
       const storedTheme = localStorage.getItem('theme');
+      const storedColor = localStorage.getItem('color');
 
       document.documentElement.setAttribute(
         'data-theme',
@@ -32,18 +33,77 @@ const { title } = Astro.props;
             ? 'light'
             : 'dark',
       );
+
+      document.documentElement.setAttribute(
+        'data-color',
+        storedColor ? storedColor : 'green',
+      );
     </script>
     <Header />
 		<slot />
 	</body>
 </html>
 <style is:global>
+
+  :root {
+    --bg-color: 245, 245, 245;
+    --bg-alt-color: 220, 220, 220;
+    --text-color: 36, 36, 36;
+    --text-alt-color: 56, 56, 56;
+    --track-color: 200, 200, 200;
+    --button-color: 255, 255, 255;
+    --button-hover-color: 249, 249, 249;
+    --shadow-color: 10, 10, 10;
+
+    --accent-blue-1: 12, 123, 255;
+    --accent-blue-2: 5, 75, 155;
+
+    --accent-green-1: 9, 142, 9;
+    --accent-green-2: 7, 117, 7;
+
+    --accent-red-1: 227, 25, 25;
+    --accent-red-2: 179, 20, 20;
+  }
   :root {
     font-family: "Trebuchet MS", Inter, Avenir, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
   }
+
+  [data-theme="dark"] {
+    --bg-color: 36, 36, 36;
+    --bg-alt-color: 12, 12, 12;
+    --text-color: 254, 254, 254;
+    --text-alt-color: 180, 180, 180;
+    --track-color: 100, 100, 100;
+    --button-color: 26, 26, 26;
+    --button-hover-color: 20, 20, 20;
+
+    --accent-blue-1: 12, 123, 255;
+    --accent-blue-2: 87, 158, 243;
+
+    --accent-green-1: 9, 142, 9;
+    --accent-green-2: 11, 193, 11;
+
+    --accent-red-2: 255, 28, 28;
+  }
+
+  [data-color="blue"] {
+    --link-color: var(--accent-blue-1);
+    --link-hover-color: var(--accent-blue-2);
+  }
+
+  [data-color="green"] {
+    --link-color: var(--accent-green-1);
+    --link-hover-color: var(--accent-green-2);
+  }
+
+  [data-color="red"] {
+    --link-color: var(--accent-red-1);
+    --link-hover-color: var(--accent-red-2);
+  }
+
 
   html {
     min-height: 100vh;
@@ -54,33 +114,7 @@ const { title } = Astro.props;
     box-sizing: inherit;
   }
 
-  @media screen, print {
-    :root {
-      --bg-color: 245, 245, 245;
-      --bg-alt-color: 220, 220, 220;
-      --text-color: 36, 36, 36;
-      --text-alt-color: 56, 56, 56;
-      --link-color: 12, 123, 255;
-      --link-hover-color: 5, 75, 155;
-      --track-color: 200, 200, 200;
-      --button-color: 255, 255, 255;
-      --button-hover-color: 249, 249, 249;
-      --shadow-color: 10, 10, 10;
-    }
-  }
-
   @media screen {
-    [data-theme="dark"] {
-      --bg-color: 36, 36, 36;
-      --bg-alt-color: 12, 12, 12;
-      --text-color: 254, 254, 254;
-      --text-alt-color: 180, 180, 180;
-      --link-color: 12, 123, 255;
-      --link-hover-color: 87, 158, 243;
-      --track-color: 100, 100, 100;
-      --button-color: 26, 26, 26;
-      --button-hover-color: 20, 20, 20;
-    }
 
     body {
       background-color: rgb(var(--bg-color));
@@ -117,5 +151,15 @@ const { title } = Astro.props;
       font-size: 10pt;
     }
   }
+
+  .sr-only {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    top: auto;
+    overflow: hidden;
+  }
+
 
 </style>
