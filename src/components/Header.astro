@@ -1,13 +1,13 @@
 ---
-import ColorPicker from './ColorPicker.astro';
+import ColorPicker from './ColorPicker.svelte';
 import SiteNav from './SiteNav.astro';
 import Toggle from './Toggle.svelte';
 interface Props {}
 ---
 
 <header class="site-header">
+  <ColorPicker client:only="svelte" />
   <Toggle client:only="svelte" />
-  <ColorPicker />
   <SiteNav
     links={[
       {
@@ -52,13 +52,12 @@ interface Props {}
 </script>
 
 <style>
-
   .site-header {
     display: flex;
-    justify-content: end;
     align-items: center;
+    justify-content: end;
     position: fixed;
-    width: 100%;
+    right: 0;
     z-index: 100;
     transition: transform 250ms linear;
   }

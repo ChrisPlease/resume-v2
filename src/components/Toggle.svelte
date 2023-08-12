@@ -40,7 +40,7 @@
   .toggle-container {
     display: flex;
     align-items: stretch;
-    margin-right: 1rem;
+    margin: 0 1rem;
     border-radius: 9999rem;
     overflow: hidden;
     border: 1px solid rgba(var(--text-color), 0.15);
