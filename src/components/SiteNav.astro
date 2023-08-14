@@ -22,12 +22,13 @@ const { links } = Astro.props satisfies Props;
           <li class="site-nav--list-item">
             <a
               class:list={[
+                'site-nav--link',
                 { active: Astro.url.pathname === route }
               ]}
               href={route}
             >
               {icon ? (
-                <i class={`fa-light fa-${icon}`} />
+                <i class={`fa-solid fa-${icon}`} />
               ) : null}
               <span class="sr-only">{name}</span>
             </a>
@@ -38,7 +39,7 @@ const { links } = Astro.props satisfies Props;
   </ul>
 </nav>
 
-<style>
+<style is:global>
   .site-nav {
     margin: 1rem;
   }
@@ -59,17 +60,20 @@ const { links } = Astro.props satisfies Props;
     margin-right: 0.5rem;
   }
 
-  .site-nav a {
+  .site-nav--link,
+  .site-nav--link:visited {
     display: block;
     text-decoration: none;
     padding: 0.25rem 1rem;
     transition: background 200ms linear;
     color: rgb(var(--text-color));
+    background: rgba(var(--text-color), 0);
+    transition: 200ms linear;
   }
 
-  .site-nav a:hover,
-  .site-nav a.active {
-    color: rgb(var(--text-color));
+  .site-nav--link:hover,
+  .site-nav--link.active {
+    color: rgb(var(--link-color));
     background: rgba(var(--text-color), 0.15);
   }
 </style>

@@ -133,6 +133,20 @@ const { title } = Astro.props;
     box-sizing: inherit;
   }
 
+  ul {
+    font-size: 90%;
+    color: rgb(var(--text-alt-color));
+    padding-left: 1.5rem;
+  }
+
+  ul ul {
+    margin: 0 0 0.5rem 0;
+  }
+
+  li:has(ul) {
+    list-style-type: none;
+  }
+
   @media screen {
 
     body {
@@ -180,80 +194,83 @@ const { title } = Astro.props;
     overflow: hidden;
   }
 
-  @media screen and (min-width: 800px) {
+  :root {
+    --bg-size: 4vw;
+    --bg-position: calc(var(--bg-size) / 2) calc(var(--bg-size) / 2);
+    --bg-offset: calc(var(--bg-size) / 3);
+  }
 
-    body {
-      background:
-        repeating-linear-gradient(
-          135deg,
-          rgb(var(--text-color)),
-          rgb(var(--text-color)) 25%,
-          transparent 25%,
-          transparent
-        ) repeat-y 3rem 0/1.5rem 1.5rem,
-        repeating-linear-gradient(
-          45deg,
-          rgb(var(--text-color)),
-          rgb(var(--text-color)) 25%,
-          transparent 25%,
-          transparent
-        ) repeat-y 3rem 0/1.5rem 1.5rem,
-        repeating-linear-gradient(
-          135deg,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.3) 25%,
-          transparent 35%,
-          transparent
-        ) repeat-y 3rem 0/1.5rem 1.5rem,
-        repeating-linear-gradient(
-          45deg,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.3) 25%,
-          transparent 35%,
-          transparent
-        ) repeat-y 3rem 0/1.5rem 1.5rem,
-        repeating-linear-gradient(
-          -135deg,
-          rgb(var(--bg-color)),
-          rgb(var(--bg-color)) 25%,
-          transparent 25%,
-          transparent
-        ) repeat-y 3rem 1rem/1.5rem 1.5rem,
-        repeating-linear-gradient(
-          -45deg,
-          rgb(var(--bg-color)),
-          rgb(var(--bg-color)) 25%,
-          transparent 25%,
-          transparent
-        ) repeat-y 3rem 1rem/1.5rem 1.5rem,
-        repeating-linear-gradient(
-          -135deg,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.3) 25%,
-          transparent 35%,
-          transparent
-        ) repeat-y 3rem 1rem/1.5rem 1.5rem,
-        repeating-linear-gradient(
-          -45deg,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.3) 25%,
-          transparent 35%,
-          transparent
-        ) repeat-y 3rem 1rem/1.5rem 1.5rem,
-        linear-gradient(
-          to right,
-          rgb(var(--text-color)),
-          rgb(var(--text-color)) 3rem,
-          transparent 3rem,
-          transparent
-        ) repeat-y 0 0/4.5rem 100%,
-        linear-gradient(
-          to bottom,
-          rgb(var(--link-color)),
-          rgb(var(--link-hover-color))
-        ) fixed repeat-y 0 0/4.5rem 100%,
-        rgb(var(--bg-color));
-    }
+  body {
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgb(var(--text-color)),
+        rgb(var(--text-color)) 25%,
+        transparent 25%,
+        transparent
+      ) repeat-y var(--bg-size) 0/var(--bg-position),
+      repeating-linear-gradient(
+        45deg,
+        rgb(var(--text-color)),
+        rgb(var(--text-color)) 25%,
+        transparent 25%,
+        transparent
+      ) repeat-y var(--bg-size) 0/var(--bg-position),
+      repeating-linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3) 25%,
+        transparent 35%,
+        transparent
+      ) repeat-y var(--bg-size) 0/var(--bg-position),
+      repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3) 25%,
+        transparent 35%,
+        transparent
+      ) repeat-y var(--bg-size) 0/var(--bg-position),
+      repeating-linear-gradient(
+        -135deg,
+        rgb(var(--bg-color)),
+        rgb(var(--bg-color)) 25%,
+        transparent 25%,
+        transparent
+      ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
+      repeating-linear-gradient(
+        -45deg,
+        rgb(var(--bg-color)),
+        rgb(var(--bg-color)) 25%,
+        transparent 25%,
+        transparent
+      ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
+      repeating-linear-gradient(
+        -135deg,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3) 25%,
+        transparent 35%,
+        transparent
+      ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3) 25%,
+        transparent 35%,
+        transparent
+      ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
+      linear-gradient(
+        to right,
+        rgb(var(--text-color)),
+        rgb(var(--text-color)) var(--bg-size),
+        transparent var(--bg-size),
+        transparent
+      ) repeat-y 0 0/calc(var(--bg-size) * 1.5) 100%,
+      linear-gradient(
+        to bottom,
+        rgb(var(--link-color)),
+        rgb(var(--link-hover-color))
+      ) fixed repeat-y 0 0/calc(var(--bg-size) * 1.5) 100%,
+      rgb(var(--bg-color));
   }
 
 </style>
