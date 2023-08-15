@@ -89,20 +89,42 @@ function handleTime(startDate: string, endDate?: string): string {
 </div>
 
 <script>
-  const sections = document.querySelectorAll('.experience-section')[0];
+  const sections = document.querySelectorAll('.experience-section');
+
+  // sections.forEach((section) => {
+  //   const meta = section.querySelector<HTMLElement>('.experience-section--meta')!;
+
+  //   meta.style.opacity = '0';
+  //   meta.style.transform = 'translateX(-50px)';
+  // })
 
   const observer = new IntersectionObserver((entry) => {
+    let prevRatio = 0.0;
     entry.forEach(e => {
-      console.log(e);
+      console.log(e.intersectionRatio, prevRatio, e.target);
+      const meta = e.target.querySelector<HTMLElement>('.experience-section--meta')!;
       if (e.isIntersecting) {
-        console.log(e.intersectionRatio);
-        console.log('intersecting', e.target)
-      }
-    })
-  })
 
-  observer.observe(sections);
-  // sections.forEach(item => observer.observe(item))
+        meta.animate([
+          { opacity: 0, transform: `translateY(-50px)` },
+          { opacity: 1, transform: `translateY(0px)` }
+        ], { duration: 500 });
+
+        meta.style.opacity = '1';
+        meta.style.transform = 'translateX(0px)';
+      } else {
+
+        meta.animate([
+          { opacity: 1, transform: `translateY(0px)` },
+          { opacity: 0, transform: `translateY(-50px)` },
+        ], { duration: 500 });
+      }
+      prevRatio = e.intersectionRatio;
+    })
+  }, { threshold: 0.5 })
+
+  // observer.observe(sections);
+  sections.forEach(item => observer.observe(item))
 </script>
 
 <style>
