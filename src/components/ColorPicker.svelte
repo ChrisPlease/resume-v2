@@ -1,7 +1,6 @@
 <script lang="ts">
   import { fade, type TransitionConfig } from 'svelte/transition';
   import { cubicOut } from 'svelte/easing';
-  import { isEqual } from 'lodash';
 
   let activeButton: HTMLButtonElement | null;
   let activeColor = document.documentElement.getAttribute('data-color');
@@ -53,7 +52,7 @@
   ): TransitionConfig {
     const { value } = node.querySelector<HTMLButtonElement>('button')!;
     const inactiveLen = inactiveColors.length;
-    const index = isEqual(prevInactiveColors, inactiveColors)
+    const index = inactiveColors.indexOf(value) > -1
       ? inactiveColors.indexOf(value)
       : prevInactiveColors.indexOf(value);
 
