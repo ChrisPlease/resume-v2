@@ -1,0 +1,140 @@
+---
+const props = Astro.props;
+---
+
+<hamburger-toggle class={`hamburger-toggle ${props.class}`}>
+  <button class="hamburger-toggle--button">
+    <span class="sr-only">Toggle</span>
+    <svg viewBox="0 0 140 100">
+      <g>
+        <line
+          class="hamburger-toggle--inactive-line"
+          stroke-linecap="round"
+          x1="30"
+          x2="110"
+          y1="20"
+          y2="20"
+          stroke-width="8"
+        />
+        <line
+          class="hamburger-toggle--inactive-line"
+          stroke-linecap="round"
+          x1="30"
+          x2="110"
+          y1="50"
+          y2="50"
+          stroke-width="8"
+        />
+        <line
+          class="hamburger-toggle--inactive-line"
+          stroke-linecap="round"
+          x1="30"
+          x2="110"
+          y1="80"
+          y2="80"
+          stroke-width="8"
+        />
+      </g>
+      <path
+        class="hamburger-toggle--transition-path"
+        d="M 110 20 A 15 15 1 1 1 110 50"
+        fill="transparent"
+        stroke-width="8"
+        stroke-linecap="round"
+      />
+      <path
+        class="hamburger-toggle--transition-path"
+        d="M 30 80 A 15 15 1 1 1 30 50"
+        fill="transparent"
+        stroke-width="8"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+</hamburger-toggle>
+
+<script>
+  class HamburgerToggle extends HTMLElement {
+    constructor() {
+      super();
+      const btn = this.querySelector<HTMLButtonElement>('button.hamburger-toggle--button');
+
+      btn?.addEventListener('click', () => {
+        this.dispatchEvent(menuHandler(!btn.classList.contains('is-active')));
+        btn.classList.toggle('is-active');
+      })
+    }
+  }
+
+  function menuHandler(isOpen: boolean) {
+    return new CustomEvent('openmenu', {
+      detail: {
+        isOpen,
+      }
+    })
+  }
+  customElements.define('hamburger-toggle', HamburgerToggle);
+</script>
+
+<style>
+  .hamburger-toggle {
+    margin: 0.5rem;
+  }
+
+  .hamburger-toggle--button {
+    width: 4rem;
+    display: flex;
+    border: 0px;
+    transition: background 100ms linear;
+    background: transparent;
+  }
+
+  .hamburger-toggle--button .hamburger-toggle--inactive-line {
+    stroke-dasharray: 80 160;
+    stroke-dashoffset: 0;
+    transition: stroke-dasharray 200ms linear, stroke-dashoffset 200ms linear;
+  }
+
+  .hamburger-toggle--button.is-active .hamburger-toggle--inactive-line:first-child {
+    stroke-dasharray: 0 160;
+    stroke-dashoffset: -80;
+  }
+
+  .hamburger-toggle--button.is-active .hamburger-toggle--inactive-line:last-child {
+    stroke-dasharray: 0 160;
+    stroke-dashoffset: 1;
+  }
+
+  .hamburger-toggle--transition-path {
+    stroke-dasharray: 0 80;
+  }
+
+  .hamburger-toggle--button.is-active .hamburger-toggle--transition-path {
+    animation: animatePath 400ms linear forwards;
+  }
+
+  .hamburger-toggle svg {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    stroke: rgb(var(--text-color));
+  }
+
+  @keyframes animatePath {
+    0% {
+      stroke-dasharray: 0 50;
+      stroke-dashoffset: 0;
+    }
+
+    50% {
+      stroke-dasharray: 50 50;
+      stroke-dashoffset: 0;
+    }
+
+    100% {
+      stroke-dasharray: 50 50;
+      stroke-dashoffset: -50;
+    }
+  }
+
+</style>

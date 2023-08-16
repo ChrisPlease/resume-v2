@@ -26,7 +26,7 @@
     const inactiveLen = inactiveColors.length;
     const index = inactiveColors.indexOf(value);
 
-    const { x, y, start, end } = handleFoo(index, inactiveLen, 2.5, 0.7);
+    const { x, y, start } = handleFoo(index, inactiveLen, 2, 0.7);
 
     node.style.transform = `translate(${x}rem, ${y}rem) scale(${start})`;
 
@@ -56,7 +56,7 @@
       ? inactiveColors.indexOf(value)
       : prevInactiveColors.indexOf(value);
 
-    const { x, y, start, end } = handleFoo(index, inactiveLen, 2.5, 0.75)
+    const { x, y, start, end } = handleFoo(index, inactiveLen, 2, 0.7)
 
     if (activeColor === value) {
       node.style.zIndex = '2';
@@ -169,7 +169,7 @@
 <style>
 .color-picker {
   position: relative;
-  margin: 0 2rem;
+  margin: 0 2.5rem;
   width: 2rem;
   height: 2rem;
 }
@@ -208,7 +208,6 @@
 }
 
 .color-picker--panel {
-  /* overflow: hidden; */
   position: absolute;
   top: 0;
   left: 50%;
