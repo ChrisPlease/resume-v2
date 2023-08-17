@@ -1,11 +1,12 @@
 ---
-import Logo from './Logo.astro';
+import ColorPicker from './ColorPicker.svelte';
 import SiteNav from './SiteNav.astro';
 import Toggle from './Toggle.svelte';
 interface Props {}
 ---
 
 <header class="site-header">
+  <ColorPicker client:only="svelte" />
   <Toggle client:only="svelte" />
   <SiteNav
     links={[
@@ -31,7 +32,7 @@ interface Props {}
   document.addEventListener('scroll', (e) => {
     if (timeoutId) clearTimeout(timeoutId);
 
-    if (lastPosition < window.scrollY) {
+    if (lastPosition < window.scrollY && window.scrollY > 0) {
       header?.classList.add('is-collapsed');
     } else {
       header?.classList.remove('is-collapsed');
@@ -41,6 +42,7 @@ interface Props {}
   })
 
   document.addEventListener('scrollend', () => {
+
     timeoutId = setTimeout(() => {
       header?.classList.remove('is-collapsed');
 
@@ -50,15 +52,15 @@ interface Props {}
 </script>
 
 <style>
-
   .site-header {
     display: flex;
-    justify-content: end;
     align-items: center;
+    justify-content: end;
     position: fixed;
-    width: 100%;
+    right: 0;
     z-index: 100;
     transition: transform 250ms linear;
+    width: 100%;
   }
 
   .site-header.is-collapsed {

@@ -15,6 +15,8 @@ import {
 
 import {
   faMoon as fasMoon,
+  faHome as fasHome,
+  faFileUser as fasFileUser,
   faSun as fasSun,
   faCircle as fasCircle,
   faArrowRight as fasArrowRight,
@@ -47,6 +49,8 @@ library.add(
   fadEnvelope,
 
   fasArrowRight,
+  fasHome,
+  fasFileUser,
   fasCircle,
   fasMoon,
   fasSun,

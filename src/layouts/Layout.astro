@@ -23,6 +23,7 @@ const { title } = Astro.props;
     <script is:inline>
       const mql = window.matchMedia('(prefers-color-scheme: light)');
       const storedTheme = localStorage.getItem('theme');
+      const storedColor = localStorage.getItem('color');
 
       document.documentElement.setAttribute(
         'data-theme',
@@ -32,17 +33,99 @@ const { title } = Astro.props;
             ? 'light'
             : 'dark',
       );
+
+      document.documentElement.setAttribute(
+        'data-color',
+        storedColor ? storedColor : 'green',
+      );
     </script>
     <Header />
 		<slot />
 	</body>
 </html>
 <style is:global>
+
+  :root {
+    --bg-color: 245, 245, 245;
+    --bg-alt-color: 220, 220, 220;
+    --text-color: 36, 36, 36;
+    --text-alt-color: 56, 56, 56;
+    --track-color: 200, 200, 200;
+    --button-color: 255, 255, 255;
+    --button-hover-color: 249, 249, 249;
+    --shadow-color: 10, 10, 10;
+
+    --accent-blue-1: 12, 123, 255;
+    --accent-blue-2: 5, 75, 155;
+
+    --accent-green-1: 9, 142, 9;
+    --accent-green-2: 7, 117, 7;
+
+    --accent-red-1: 227, 25, 25;
+    --accent-red-2: 179, 20, 20;
+
+    --accent-orange-1: 229, 149, 0;
+    --accent-orange-2: 204, 132, 0;
+
+    --accent-purple-1: 140, 0, 201;
+    --accent-purple-2: 111, 0, 158;
+
+    --bg-size: 4vw;
+    --bg-position: calc(var(--bg-size) / 2) calc(var(--bg-size) / 2);
+    --bg-offset: calc(var(--bg-size) / 3);
+  }
   :root {
     font-family: "Trebuchet MS", Inter, Avenir, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
+  }
+
+  [data-theme="dark"] {
+    --bg-color: 36, 36, 36;
+    --bg-alt-color: 12, 12, 12;
+    --text-color: 254, 254, 254;
+    --text-alt-color: 180, 180, 180;
+    --track-color: 100, 100, 100;
+    --button-color: 26, 26, 26;
+    --button-hover-color: 20, 20, 20;
+
+    --accent-blue-1: 12, 123, 255;
+    --accent-blue-2: 87, 158, 243;
+
+    --accent-green-1: 9, 142, 9;
+    --accent-green-2: 20, 220, 20;
+
+    --accent-red-2: 255, 90, 90;
+
+    --accent-orange-2: 255, 165, 0;
+
+    --accent-purple-2: 188, 0, 255;
+  }
+
+  [data-color="blue"] {
+    --link-color: var(--accent-blue-1);
+    --link-hover-color: var(--accent-blue-2);
+  }
+
+  [data-color="green"] {
+    --link-color: var(--accent-green-1);
+    --link-hover-color: var(--accent-green-2);
+  }
+
+  [data-color="red"] {
+    --link-color: var(--accent-red-1);
+    --link-hover-color: var(--accent-red-2);
+  }
+
+  [data-color="orange"] {
+    --link-color: var(--accent-orange-1);
+    --link-hover-color: var(--accent-orange-2);
+  }
+
+  [data-color="purple"] {
+    --link-color: var(--accent-purple-1);
+    --link-hover-color: var(--accent-purple-2);
   }
 
   html {
@@ -54,36 +137,23 @@ const { title } = Astro.props;
     box-sizing: inherit;
   }
 
-  @media screen, print {
-    :root {
-      --bg-color: 245, 245, 245;
-      --bg-alt-color: 220, 220, 220;
-      --text-color: 36, 36, 36;
-      --text-alt-color: 56, 56, 56;
-      --link-color: 12, 123, 255;
-      --link-hover-color: 5, 75, 155;
-      --track-color: 200, 200, 200;
-      --button-color: 255, 255, 255;
-      --button-hover-color: 249, 249, 249;
-      --shadow-color: 10, 10, 10;
-    }
+  ul {
+    font-size: 90%;
+    color: rgb(var(--text-alt-color));
+    padding-left: 1.5rem;
+  }
+
+  ul ul {
+    margin: 0 0 0.5rem 0;
+  }
+
+  li:has(ul) {
+    list-style-type: none;
   }
 
   @media screen {
-    [data-theme="dark"] {
-      --bg-color: 36, 36, 36;
-      --bg-alt-color: 12, 12, 12;
-      --text-color: 254, 254, 254;
-      --text-alt-color: 180, 180, 180;
-      --link-color: 12, 123, 255;
-      --link-hover-color: 87, 158, 243;
-      --track-color: 100, 100, 100;
-      --button-color: 26, 26, 26;
-      --button-hover-color: 20, 20, 20;
-    }
 
     body {
-      background-color: rgb(var(--bg-color));
       color: rgb(var(--text-color));
       margin: 0;
       padding: 0;
@@ -92,6 +162,76 @@ const { title } = Astro.props;
       justify-content: start;
       min-height: 100vh;
       overflow: scroll;
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgb(var(--text-color)),
+          rgb(var(--text-color)) 25%,
+          transparent 25%,
+          transparent
+        ) repeat-y var(--bg-size) 0/var(--bg-position),
+        repeating-linear-gradient(
+          45deg,
+          rgb(var(--text-color)),
+          rgb(var(--text-color)) 25%,
+          transparent 25%,
+          transparent
+        ) repeat-y var(--bg-size) 0/var(--bg-position),
+        repeating-linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3) 25%,
+          transparent 35%,
+          transparent
+        ) repeat-y var(--bg-size) 0/var(--bg-position),
+        repeating-linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3) 25%,
+          transparent 35%,
+          transparent
+        ) repeat-y var(--bg-size) 0/var(--bg-position),
+        repeating-linear-gradient(
+          -135deg,
+          rgb(var(--bg-color)),
+          rgb(var(--bg-color)) 25%,
+          transparent 25%,
+          transparent
+        ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
+        repeating-linear-gradient(
+          -45deg,
+          rgb(var(--bg-color)),
+          rgb(var(--bg-color)) 25%,
+          transparent 25%,
+          transparent
+        ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
+        repeating-linear-gradient(
+          -135deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3) 25%,
+          transparent 35%,
+          transparent
+        ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.3) 25%,
+          transparent 35%,
+          transparent
+        ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
+        linear-gradient(
+          to right,
+          rgb(var(--text-color)),
+          rgb(var(--text-color)) var(--bg-size),
+          transparent var(--bg-size),
+          transparent
+        ) repeat-y 0 0/calc(var(--bg-size) * 4) 100%,
+        linear-gradient(
+          to bottom,
+          rgb(var(--link-color)),
+          rgb(var(--link-hover-color))
+        ) fixed repeat-y 0 0/calc(var(--bg-size) * 1.5) 100%,
+        rgb(var(--bg-color));
     }
 
     html,
@@ -118,4 +258,12 @@ const { title } = Astro.props;
     }
   }
 
+  .sr-only {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    top: auto;
+    overflow: hidden;
+  }
 </style>

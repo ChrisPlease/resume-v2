@@ -11,12 +11,13 @@
         "60/40 time split between IC role and management of direct reports",
         "Ensured code quality across the Cofense UI codebases through 1:1s, code reviews, paired programming",
         "Worked across multiple projects to ensure UI team hit required deadlines",
-        "Led the team in a major version update for the company's internal component styleguide"
+        "Led the team in a major version update for the company's internal component styleguide",
+        "Planned the effort to migrate the company's UI to Vue3"
       ],
       "As Senior Engineer:": [
         "Served as team lead for various UI initiatives",
         "Led initiative to rebuild flagship product from aging legacy Ruby on Rails application to modern SPA",
-        "Spearheaded the initiative to convert the company's UI codebases to modern TypeScript and Vue 3"
+        "Spearheaded the initiative to convert the company's UI codebases to modern TypeScript"
       ]
     }
   ]

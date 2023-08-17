@@ -1,6 +1,5 @@
 ---
 import type { IconName } from '@fortawesome/fontawesome-svg-core';
-import Icon from './Icon.svelte';
 
 interface Link {
   name: string;
@@ -16,18 +15,21 @@ const { links } = Astro.props satisfies Props;
 ---
 
 <nav class="site-nav">
-  <ul>
+  <ul class="site-nav--list">
     {
       links.map(
         ({ name, route, icon }: Link) => (
-          <li class="nav-item">
+          <li class="site-nav--list-item">
             <a
               class:list={[
+                'site-nav--link',
                 { active: Astro.url.pathname === route }
               ]}
               href={route}
             >
-              {icon ? <Icon name={icon} /> : null}
+              {icon ? (
+                <i class={`fa-solid fa-${icon}`} />
+              ) : null}
               <span class="sr-only">{name}</span>
             </a>
           </li>
@@ -37,38 +39,41 @@ const { links } = Astro.props satisfies Props;
   </ul>
 </nav>
 
-<style>
+<style is:global>
   .site-nav {
     margin: 1rem;
   }
 
-  ul {
+  .site-nav--list {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
   }
 
-  .nav-item {
+  .site-nav--list-item {
     border-radius: 9999px;
     overflow: hidden;
   }
 
-  .nav-item:not(:last-child) {
+  .site-nav--list-item:not(:last-child) {
     margin-right: 0.5rem;
   }
 
-  .site-nav a {
+  .site-nav--link,
+  .site-nav--link:visited {
     display: block;
     text-decoration: none;
     padding: 0.25rem 1rem;
     transition: background 200ms linear;
     color: rgb(var(--text-color));
+    background: rgba(var(--text-color), 0);
+    transition: 200ms linear;
   }
 
-  .site-nav a:hover,
-  .site-nav a.active {
-    color: rgb(var(--text-color));
+  .site-nav--link:hover,
+  .site-nav--link.active {
+    color: rgb(var(--link-color));
     background: rgba(var(--text-color), 0.15);
   }
 </style>
