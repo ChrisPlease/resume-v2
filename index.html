@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<meta name="generator" content="Astro v2.10.3">
+		<title>Welcome to Astro 1.</title>
+    
+	<link rel="stylesheet" href="/_astro/index.148e6d88.css" />
+<link rel="stylesheet" href="/_astro/index.a3c1e9c5.css" />
+<link rel="stylesheet" href="/_astro/ColorPicker.232ef875.css" />
+<link rel="stylesheet" href="/_astro/ThemeToggle.c48b9f37.css" /><script type="module" src="/_astro/hoisted.3f5bd8ce.js"></script></head>
+	<body>
+    <script>
+      const mql = window.matchMedia('(prefers-color-scheme: light)');
+      const storedTheme = localStorage.getItem('theme');
+      const storedColor = localStorage.getItem('color');
+
+      document.documentElement.setAttribute(
+        'data-theme',
+        storedTheme
+          ? storedTheme
+          : mql.matches
+            ? 'light'
+            : 'dark',
+      );
+
+      document.documentElement.setAttribute(
+        'data-color',
+        storedColor ? storedColor : 'green',
+      );
+    </script>
+    <header class="site-header astro-3EF6KSR2">
+  <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).only=e;window.dispatchEvent(new Event("astro:only"));})();;(()=>{var d;{let p={0:t=>t,1:t=>JSON.parse(t,a),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,a)),5:t=>new Set(JSON.parse(t,a)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},a=(t,r)=>{if(t===""||!Array.isArray(r))return r;let[s,i]=r;return s in p?p[s](i):void 0};customElements.get("astro-island")||customElements.define("astro-island",(d=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=async()=>{var o;if(!this.hydrator||!this.isConnected)return;let r=(o=this.parentElement)==null?void 0:o.closest("astro-island[ssr]");if(r){r.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let s=this.querySelectorAll("astro-slot"),i={},c=this.querySelectorAll("template[data-astro-template]");for(let e of c){let n=e.closest(this.tagName);n!=null&&n.isSameNode(this)&&(i[e.getAttribute("data-astro-template")||"default"]=e.innerHTML,e.remove())}for(let e of s){let n=e.closest(this.tagName);n!=null&&n.isSameNode(this)&&(i[e.getAttribute("name")||"default"]=e.innerHTML)}let l;try{l=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),a):{}}catch(e){let n=this.getAttribute("component-url")||"<unknown>",h=this.getAttribute("component-export");throw h&&(n+=` (export ${h})`),console.error(`[hydrate] Error parsing props for component ${n}`,this.getAttribute("props"),e),e}await this.hydrator(this)(this.Component,l,i,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((r,s)=>{s.disconnect(),setTimeout(()=>this.childrenConnectedCallback(),0)}).observe(this,{childList:!0})}async childrenConnectedCallback(){let r=this.getAttribute("before-hydration-url");r&&await import(r),this.start()}start(){let r=JSON.parse(this.getAttribute("opts")),s=this.getAttribute("client");if(Astro[s]===void 0){window.addEventListener(`astro:${s}`,()=>this.start(),{once:!0});return}Astro[s](async()=>{let i=this.getAttribute("renderer-url"),[c,{default:l}]=await Promise.all([import(this.getAttribute("component-url")),i?import(i):()=>()=>{}]),o=this.getAttribute("component-export")||"default";if(!o.includes("."))this.Component=c[o];else{this.Component=c;for(let e of o.split("."))this.Component=this.Component[e]}return this.hydrator=l,this.hydrate},r,this)}attributeChangedCallback(){this.hydrate()}},d.observedAttributes=["props"],d))}})();</script><astro-island uid="2cF07Q" component-url="/_astro/ColorPicker.84ad081b.js" component-export="default" renderer-url="/_astro/client.c4e17359.js" props="{&quot;class&quot;:[0,&quot;astro-3EF6KSR2&quot;]}" ssr="" client="only" opts="{&quot;name&quot;:&quot;ColorPicker&quot;,&quot;value&quot;:&quot;svelte&quot;}"></astro-island>
+  <astro-island uid="Z1E8TGk" component-url="/_astro/ThemeToggle.5a83a7d7.js" component-export="default" renderer-url="/_astro/client.c4e17359.js" props="{&quot;class&quot;:[0,&quot;astro-3EF6KSR2&quot;]}" ssr="" client="only" opts="{&quot;name&quot;:&quot;ThemeToggle&quot;,&quot;value&quot;:&quot;svelte&quot;}"></astro-island>
+  <div class="site-header--container astro-3EF6KSR2">
+    <nav class="site-nav">
+  <ul class="site-nav--list">
+    <li class="site-nav--list-item">
+            <a class="site-nav--link active" href="/">
+              <i class="fa-solid fa-home"></i>
+              <span>Home</span>
+            </a>
+          </li><li class="site-nav--list-item">
+            <a class="site-nav--link" href="/resume">
+              <i class="fa-solid fa-file-user"></i>
+              <span>Resume</span>
+            </a>
+          </li>
+  </ul>
+</nav>
+  </div>
+  <hamburger-toggle class="hamburger-toggle site-header--hamburger astro-3EF6KSR2 astro-3WEO6HLS">
+  <button class="hamburger-toggle--button astro-3WEO6HLS">
+    <span class="sr-only astro-3WEO6HLS">Toggle</span>
+    <svg viewBox="0 0 120 100" class="astro-3WEO6HLS">
+      <g class="astro-3WEO6HLS">
+        <line class="hamburger-toggle--inactive-line astro-3WEO6HLS" stroke-linecap="round" x1="20" x2="100" y1="20" y2="20" stroke-width="8"></line>
+        <line class="hamburger-toggle--inactive-line astro-3WEO6HLS" stroke-linecap="round" x1="20" x2="100" y1="50" y2="50" stroke-width="8"></line>
+        <line class="hamburger-toggle--inactive-line astro-3WEO6HLS" stroke-linecap="round" x1="20" x2="100" y1="80" y2="80" stroke-width="8"></line>
+      </g>
+      <path class="hamburger-toggle--transition-path astro-3WEO6HLS" d="M 100 20 A 15 15 1 1 1 100 50" fill="transparent" stroke-width="8" stroke-linecap="round"></path>
+      <path class="hamburger-toggle--transition-path astro-3WEO6HLS" d="M 20 80 A 15 15 1 1 1 20 50" fill="transparent" stroke-width="8" stroke-linecap="round"></path>
+    </svg>
+  </button>
+</hamburger-toggle>
+</header>
+		
+	<main class="astro-J7PV25F6">
+    <i class="fa-shake fa-hand-wave fa-light fa-3x astro-J7PV25F6"></i>
+		<h1 class="astro-J7PV25F6">Welcome!</h1>
+
+    <ul class="contact-list">
+  <li class="contact-item">
+    <a class="contact-link" href="mailto:chris@chrisplease.me">
+      <span class="contact-icon-container">
+        <i class="fa-regular fa-envelope fa-lg fa-fw"></i>
+      </span>
+      <span class="contact-link-text">
+        chris@chrisplease.me
+      </span>
+    </a>
+  </li>
+  <li class="contact-item">
+    <a class="contact-link" href="https://codepen.io/ChrisPlz">
+      <span class="contact-icon-container">
+        <i class="fa-brands fa-codepen fa-lg fa-fw"></i>
+      </span>
+      <span class="contact-link-text">
+        ChrisPlz
+      </span>
+    </a>
+  </li>
+  <li class="contact-item">
+    <a class="contact-link" href="https://github.com/ChrisPlease">
+      <span class="contact-icon-container">
+        <i class="fa-brands fa-github-alt fa-lg fa-fw"></i>
+      </span>
+      <span class="contact-link-text">
+        ChrisPlease
+      </span>
+    </a>
+  </li>
+  <li class="contact-item">
+    <a class="contact-link" href="https://linkedin.com/in/ChrisPlease">
+      <span class="contact-icon-container">
+        <i class="fa-brands fa-linkedin-in fa-lg fa-fw"></i>
+      </span>
+      <span class="contact-link-text">
+        ChrisPlease
+      </span>
+    </a>
+  </li>
+</ul>
+
+<style>
+  .contact-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin: 0.125rem 0;
+    border-radius: 999px;
+  }
+
+  .contact-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: rgb(var(--link-color));
+  }
+
+  .contact-link-text {
+    width: 0;
+    display: block;
+    overflow: hidden;
+  }
+
+  @media screen {
+    .contact-list {
+      display: flex;
+      justify-content: start;
+    }
+
+    .contact-item {
+      margin: 0 0.25rem;
+    }
+
+    .contact-icon-container {
+      width: 2rem;
+      height: 2rem;
+      color: rgb(var(--bg-color));
+      background: linear-gradient(
+        35deg,
+        rgb(var(--link-color)),
+        rgb(var(--link-hover-color))
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      box-shadow: 0 2px 2px rgba(var(--shadow-color), 0.25);
+    }
+  }
+
+  @media print {
+    .contact-icon-container {
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+
+    .contact-link::after{
+      content: attr(href);
+    }
+  }
+
+</style>
+	</main>
+
+	</body></html>
