@@ -1,31 +1,37 @@
 ---
+import Hamburger from './Hamburger.astro';
 import ColorPicker from './ColorPicker.svelte';
 import SiteNav from './SiteNav.astro';
-import Toggle from './Toggle.svelte';
+import ThemeToggle from './ThemeToggle.svelte';
 interface Props {}
 ---
 
 <header class="site-header">
   <ColorPicker client:only="svelte" />
-  <Toggle client:only="svelte" />
-  <SiteNav
-    links={[
-      {
-        name: 'Home',
-        route: '/',
-        icon: 'home',
-      },
-      {
-        name: 'Resume',
-        route: '/resume',
-        icon: 'file-user',
-      },
-    ]}
-  />
+  <ThemeToggle client:only="svelte" />
+  <div class="site-header--container">
+    <SiteNav
+      links={[
+        {
+          name: 'Home',
+          route: '/',
+          icon: 'home',
+        },
+        {
+          name: 'Resume',
+          route: '/resume',
+          icon: 'file-user',
+        },
+      ]}
+    />
+  </div>
+  <Hamburger class="site-header--hamburger" />
 </header>
 
 <script>
   const header = document.querySelector('.site-header');
+  const container = document.querySelector('.site-header--container');
+  const hamburger = document.querySelector('.site-header--hamburger');
   let lastPosition = 0;
   let timeoutId: number;
 
@@ -39,13 +45,20 @@ interface Props {}
     }
 
     lastPosition = window.scrollY;
+  });
+
+  hamburger?.addEventListener('openmenu', (e: Event) => {
+    const { detail: { isOpen } } = e as CustomEvent;
+    if (!isOpen) {
+      container?.classList.remove('is-open');
+    } else {
+      container?.classList.add('is-open');
+    }
   })
 
   document.addEventListener('scrollend', () => {
-
     timeoutId = setTimeout(() => {
       header?.classList.remove('is-collapsed');
-
     }, 2000);
   })
 
@@ -61,6 +74,24 @@ interface Props {}
     z-index: 100;
     transition: transform 250ms linear;
     width: 100%;
+  }
+
+  .site-header--container {
+    position: absolute;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 200ms linear 200ms;
+  }
+
+  .site-header--container {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  .site-header--container.is-open {
+    opacity: 1;
+    transform: translateY(0px);
   }
 
   .site-header.is-collapsed {

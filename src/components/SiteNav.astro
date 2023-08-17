@@ -8,16 +8,16 @@ interface Link {
 }
 
 interface Props {
-  links: Link[]
+  links: Link[];
 }
 
-const { links } = Astro.props satisfies Props;
+const props = Astro.props satisfies Props;
 ---
 
 <nav class="site-nav">
   <ul class="site-nav--list">
     {
-      links.map(
+      props.links.map(
         ({ name, route, icon }: Link) => (
           <li class="site-nav--list-item">
             <a
@@ -30,7 +30,7 @@ const { links } = Astro.props satisfies Props;
               {icon ? (
                 <i class={`fa-solid fa-${icon}`} />
               ) : null}
-              <span class="sr-only">{name}</span>
+              <span>{name}</span>
             </a>
           </li>
         )
@@ -41,7 +41,7 @@ const { links } = Astro.props satisfies Props;
 
 <style is:global>
   .site-nav {
-    margin: 1rem;
+    margin: 0.5rem;
   }
 
   .site-nav--list {
@@ -60,19 +60,17 @@ const { links } = Astro.props satisfies Props;
     margin-right: 0.5rem;
   }
 
-  .site-nav--link,
-  .site-nav--link:visited {
+  .site-nav .site-nav--link,
+  .site-nav .site-nav--link:visited {
     display: block;
     text-decoration: none;
     padding: 0.25rem 1rem;
-    transition: background 200ms linear;
     color: rgb(var(--text-color));
     background: rgba(var(--text-color), 0);
-    transition: 200ms linear;
   }
 
-  .site-nav--link:hover,
-  .site-nav--link.active {
+  .site-nav .site-nav--link:hover,
+  .site-nav .site-nav--link.active {
     color: rgb(var(--link-color));
     background: rgba(var(--text-color), 0.15);
   }
