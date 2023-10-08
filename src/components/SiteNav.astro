@@ -28,7 +28,7 @@ const props = Astro.props satisfies Props;
               href={route}
             >
               {icon ? (
-                <i class={`fa-solid fa-${icon}`} />
+                <i class={`icon fa-solid fa-${icon} fa-fw`} />
               ) : null}
               <span>{name}</span>
             </a>
@@ -73,5 +73,9 @@ const props = Astro.props satisfies Props;
   .site-nav .site-nav--link.active {
     color: rgb(var(--link-color));
     background: rgba(var(--text-color), 0.15);
+  }
+
+  .site-nav--link .icon {
+    padding-right: 0.25rem;
   }
 </style>
