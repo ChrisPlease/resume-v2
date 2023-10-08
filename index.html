@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width">
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-		<meta name="generator" content="Astro v2.10.3">
-		<title>Chris Pruyne | Software Engineer</title>
-    
-	<link rel="stylesheet" href="/_astro/index.148e6d88.css" />
-<link rel="stylesheet" href="/_astro/index.a3c1e9c5.css" />
-<link rel="stylesheet" href="/_astro/ColorPicker.232ef875.css" />
-<link rel="stylesheet" href="/_astro/ThemeToggle.c48b9f37.css" /><script type="module" src="/_astro/hoisted.3f5bd8ce.js"></script></head>
-	<body>
-    <script>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v3.2.3"><title>Chris Pruyne | Software Engineer</title><link rel="stylesheet" href="/_astro/index.6fc61b85.css" />
+<style>main[data-astro-cid-j7pv25f6]{flex-grow:1;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.toggle-container.svelte-1hhum2t{display:flex;align-items:stretch;margin:0 1rem;border-radius:9999rem;overflow:hidden;border:1px solid rgba(var(--text-color),.15)}.light.svelte-1hhum2t,.dark.svelte-1hhum2t{padding:.5rem .75rem;border:0;color:rgb(var(--text-color));background-size:200%;background-color:rgb(var(--bg-color));transition:background-position .1s linear}.light.svelte-1hhum2t{background-position:0%;background-image:linear-gradient(to right,rgba(var(--link-color),0),rgba(var(--link-color),0) 50%,rgba(var(--link-color),1) 50%,rgba(var(--link-color),1))}.light.active.svelte-1hhum2t{background-position:101%}.dark.active.svelte-1hhum2t{background-position:-1%}.dark.svelte-1hhum2t{background-position:100%;background-image:linear-gradient(to right,rgba(var(--link-color),1),rgba(var(--link-color),1) 50%,rgba(var(--link-color),0) 50%,rgba(var(--link-color),0))}
+.color-picker.svelte-1m7p217{position:relative;margin:0 2.5rem;width:2rem;height:2rem}.color-picker--button.svelte-1m7p217,.color-picker--select-button.svelte-1m7p217{width:2rem;height:2rem;border-radius:9999px;border:.25rem solid rgb(var(--bg-alt-color));position:relative}.color-picker--button.svelte-1m7p217{background:linear-gradient(35deg,rgb(var(--link-color)),rgb(var(--link-hover-color)));z-index:5;position:relative;display:flex}.color-picker--select-button.svelte-1m7p217{background:linear-gradient(35deg,var(--start),var(--end))}.color-picker--button.svelte-1m7p217,.color-picker--select-button.svelte-1m7p217{cursor:pointer}.color-picker--panel.svelte-1m7p217{position:absolute;top:0;left:50%;transform:translate(-50%);transform-origin:0% 0%;z-index:4}.color-picker--select-list.svelte-1m7p217{list-style-type:none;margin:0;padding:0;display:flex;position:relative}.color-picker--select-list-item.svelte-1m7p217{margin:0;display:flex;position:absolute;top:0;left:calc(50% - 1rem);transform:scale(.75);z-index:1}
+</style><script type="module" src="/_astro/hoisted.3f5bd8ce.js"></script></head><body><script>
       const mql = window.matchMedia('(prefers-color-scheme: light)');
       const storedTheme = localStorage.getItem('theme');
       const storedColor = localStorage.getItem('color');
@@ -31,91 +20,15 @@
         'data-color',
         storedColor ? storedColor : 'green',
       );
-    </script>
-    <header class="site-header astro-3EF6KSR2">
-  <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).only=e;window.dispatchEvent(new Event("astro:only"));})();;(()=>{var d;{let p={0:t=>t,1:t=>JSON.parse(t,a),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,a)),5:t=>new Set(JSON.parse(t,a)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},a=(t,r)=>{if(t===""||!Array.isArray(r))return r;let[s,i]=r;return s in p?p[s](i):void 0};customElements.get("astro-island")||customElements.define("astro-island",(d=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=async()=>{var o;if(!this.hydrator||!this.isConnected)return;let r=(o=this.parentElement)==null?void 0:o.closest("astro-island[ssr]");if(r){r.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let s=this.querySelectorAll("astro-slot"),i={},c=this.querySelectorAll("template[data-astro-template]");for(let e of c){let n=e.closest(this.tagName);n!=null&&n.isSameNode(this)&&(i[e.getAttribute("data-astro-template")||"default"]=e.innerHTML,e.remove())}for(let e of s){let n=e.closest(this.tagName);n!=null&&n.isSameNode(this)&&(i[e.getAttribute("name")||"default"]=e.innerHTML)}let l;try{l=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),a):{}}catch(e){let n=this.getAttribute("component-url")||"<unknown>",h=this.getAttribute("component-export");throw h&&(n+=` (export ${h})`),console.error(`[hydrate] Error parsing props for component ${n}`,this.getAttribute("props"),e),e}await this.hydrator(this)(this.Component,l,i,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((r,s)=>{s.disconnect(),setTimeout(()=>this.childrenConnectedCallback(),0)}).observe(this,{childList:!0})}async childrenConnectedCallback(){let r=this.getAttribute("before-hydration-url");r&&await import(r),this.start()}start(){let r=JSON.parse(this.getAttribute("opts")),s=this.getAttribute("client");if(Astro[s]===void 0){window.addEventListener(`astro:${s}`,()=>this.start(),{once:!0});return}Astro[s](async()=>{let i=this.getAttribute("renderer-url"),[c,{default:l}]=await Promise.all([import(this.getAttribute("component-url")),i?import(i):()=>()=>{}]),o=this.getAttribute("component-export")||"default";if(!o.includes("."))this.Component=c[o];else{this.Component=c;for(let e of o.split("."))this.Component=this.Component[e]}return this.hydrator=l,this.hydrate},r,this)}attributeChangedCallback(){this.hydrate()}},d.observedAttributes=["props"],d))}})();</script><astro-island uid="2cF07Q" component-url="/_astro/ColorPicker.84ad081b.js" component-export="default" renderer-url="/_astro/client.c4e17359.js" props="{&quot;class&quot;:[0,&quot;astro-3EF6KSR2&quot;]}" ssr="" client="only" opts="{&quot;name&quot;:&quot;ColorPicker&quot;,&quot;value&quot;:&quot;svelte&quot;}"></astro-island>
-  <astro-island uid="Z1E8TGk" component-url="/_astro/ThemeToggle.5a83a7d7.js" component-export="default" renderer-url="/_astro/client.c4e17359.js" props="{&quot;class&quot;:[0,&quot;astro-3EF6KSR2&quot;]}" ssr="" client="only" opts="{&quot;name&quot;:&quot;ThemeToggle&quot;,&quot;value&quot;:&quot;svelte&quot;}"></astro-island>
-  <div class="site-header--container astro-3EF6KSR2">
-    <nav class="site-nav">
-  <ul class="site-nav--list">
-    <li class="site-nav--list-item">
-            <a class="site-nav--link active" href="/">
-              <i class="fa-solid fa-home"></i>
-              <span>Home</span>
-            </a>
-          </li><li class="site-nav--list-item">
-            <a class="site-nav--link" href="/resume">
-              <i class="fa-solid fa-file-user"></i>
-              <span>Resume</span>
-            </a>
-          </li>
-  </ul>
-</nav>
-  </div>
-  <hamburger-toggle class="hamburger-toggle site-header--hamburger astro-3EF6KSR2 astro-3WEO6HLS">
-  <button class="hamburger-toggle--button astro-3WEO6HLS">
-    <span class="sr-only astro-3WEO6HLS">Toggle</span>
-    <svg viewBox="0 0 120 100" class="astro-3WEO6HLS">
-      <g class="astro-3WEO6HLS">
-        <line class="hamburger-toggle--inactive-line astro-3WEO6HLS" stroke-linecap="round" x1="20" x2="100" y1="20" y2="20" stroke-width="8"></line>
-        <line class="hamburger-toggle--inactive-line astro-3WEO6HLS" stroke-linecap="round" x1="20" x2="100" y1="50" y2="50" stroke-width="8"></line>
-        <line class="hamburger-toggle--inactive-line astro-3WEO6HLS" stroke-linecap="round" x1="20" x2="100" y1="80" y2="80" stroke-width="8"></line>
-      </g>
-      <path class="hamburger-toggle--transition-path astro-3WEO6HLS" d="M 100 20 A 15 15 1 1 1 100 50" fill="transparent" stroke-width="8" stroke-linecap="round"></path>
-      <path class="hamburger-toggle--transition-path astro-3WEO6HLS" d="M 20 80 A 15 15 1 1 1 20 50" fill="transparent" stroke-width="8" stroke-linecap="round"></path>
-    </svg>
-  </button>
-</hamburger-toggle>
-</header>
-		
-	<main class="astro-J7PV25F6">
-    <i class="fa-shake fa-hand-wave fa-light fa-3x astro-J7PV25F6"></i>
-		<h1 class="astro-J7PV25F6">Welcome!</h1>
-    <p class="astro-J7PV25F6">Check out my <a href="/resume" class="astro-J7PV25F6">resume</a>.</p>
-    <ul class="contact-list">
-  <li class="contact-item">
-    <a class="contact-link" href="mailto:chris@chrisplease.me">
-      <span class="contact-icon-container">
-        <i class="fa-regular fa-envelope fa-lg fa-fw"></i>
-      </span>
-      <span class="contact-link-text">
-        chris@chrisplease.me
-      </span>
-    </a>
-  </li>
-  <li class="contact-item">
-    <a class="contact-link" href="https://codepen.io/ChrisPlz">
-      <span class="contact-icon-container">
-        <i class="fa-brands fa-codepen fa-lg fa-fw"></i>
-      </span>
-      <span class="contact-link-text">
-        ChrisPlz
-      </span>
-    </a>
-  </li>
-  <li class="contact-item">
-    <a class="contact-link" href="https://github.com/ChrisPlease">
-      <span class="contact-icon-container">
-        <i class="fa-brands fa-github-alt fa-lg fa-fw"></i>
-      </span>
-      <span class="contact-link-text">
-        ChrisPlease
-      </span>
-    </a>
-  </li>
-  <li class="contact-item">
-    <a class="contact-link" href="https://linkedin.com/in/ChrisPlease">
-      <span class="contact-icon-container">
-        <i class="fa-brands fa-linkedin-in fa-lg fa-fw"></i>
-      </span>
-      <span class="contact-link-text">
-        ChrisPlease
-      </span>
-    </a>
-  </li>
-</ul>
-
-<style>
+    </script><header class="site-header" data-astro-cid-3ef6ksr2><style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).only=e;window.dispatchEvent(new Event("astro:only"));})();;(()=>{var b=Object.defineProperty;var f=(c,o,i)=>o in c?b(c,o,{enumerable:!0,configurable:!0,writable:!0,value:i}):c[o]=i;var l=(c,o,i)=>(f(c,typeof o!="symbol"?o+"":o,i),i);var p;{let c={0:t=>m(t),1:t=>i(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(i(t)),5:t=>new Set(i(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t)},o=t=>{let[e,r]=t;return e in c?c[e](r):void 0},i=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([e,r])=>[e,o(r)]));customElements.get("astro-island")||customElements.define("astro-island",(p=class extends HTMLElement{constructor(){super(...arguments);l(this,"Component");l(this,"hydrator");l(this,"hydrate",async()=>{var d;if(!this.hydrator||!this.isConnected)return;let e=(d=this.parentElement)==null?void 0:d.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),a={},h=this.querySelectorAll("template[data-astro-template]");for(let n of h){let s=n.closest(this.tagName);s!=null&&s.isSameNode(this)&&(a[n.getAttribute("data-astro-template")||"default"]=n.innerHTML,n.remove())}for(let n of r){let s=n.closest(this.tagName);s!=null&&s.isSameNode(this)&&(a[n.getAttribute("name")||"default"]=n.innerHTML)}let u;try{u=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(n){let s=this.getAttribute("component-url")||"<unknown>",y=this.getAttribute("component-export");throw y&&(s+=` (export ${y})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),n),n}await this.hydrator(this)(this.Component,u,a,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});l(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),r.disconnect(),this.childrenConnectedCallback()},r=new MutationObserver(()=>{var a;((a=this.lastChild)==null?void 0:a.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});r.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}Astro[r](async()=>{let a=this.getAttribute("renderer-url"),[h,{default:u}]=await Promise.all([import(this.getAttribute("component-url")),a?import(a):()=>()=>{}]),d=this.getAttribute("component-export")||"default";if(!d.includes("."))this.Component=h[d];else{this.Component=h;for(let n of d.split("."))this.Component=this.Component[n]}return this.hydrator=u,this.hydrate},e,this)}attributeChangedCallback(){this.hydrate()}},l(p,"observedAttributes",["props"]),p))}})();</script><astro-island uid="ZJjEsa" component-url="/_astro/ColorPicker.7b28c98c.js" component-export="default" renderer-url="/_astro/client.ef651e53.js" props="{&quot;data-astro-cid-3ef6ksr2&quot;:[0,true]}" ssr="" client="only" opts="{&quot;name&quot;:&quot;ColorPicker&quot;,&quot;value&quot;:&quot;svelte&quot;}"></astro-island><astro-island uid="Z4ImeO" component-url="/_astro/ThemeToggle.75169782.js" component-export="default" renderer-url="/_astro/client.ef651e53.js" props="{&quot;data-astro-cid-3ef6ksr2&quot;:[0,true]}" ssr="" client="only" opts="{&quot;name&quot;:&quot;ThemeToggle&quot;,&quot;value&quot;:&quot;svelte&quot;}"></astro-island><div class="site-header--container" data-astro-cid-3ef6ksr2><nav class="site-nav"><ul class="site-nav--list"><li class="site-nav--list-item"><a class="site-nav--link active" href="/"><i class="icon fa-solid fa-home fa-fw"></i><span>Home</span></a></li><li class="site-nav--list-item"><a class="site-nav--link" href="/resume"><i class="icon fa-solid fa-file-user fa-fw"></i><span>Resume</span></a></li></ul></nav></div><hamburger-toggle class="hamburger-toggle site-header--hamburger" data-astro-cid-3weo6hls><button class="hamburger-toggle--button" data-astro-cid-3weo6hls><span class="sr-only" data-astro-cid-3weo6hls>Toggle</span><svg viewBox="0 0 120 100" data-astro-cid-3weo6hls><g data-astro-cid-3weo6hls><line class="hamburger-toggle--inactive-line" stroke-linecap="round" x1="20" x2="100" y1="20" y2="20" stroke-width="8" data-astro-cid-3weo6hls></line><line class="hamburger-toggle--inactive-line" stroke-linecap="round" x1="20" x2="100" y1="50" y2="50" stroke-width="8" data-astro-cid-3weo6hls></line><line class="hamburger-toggle--inactive-line" stroke-linecap="round" x1="20" x2="100" y1="80" y2="80" stroke-width="8" data-astro-cid-3weo6hls></line></g><path class="hamburger-toggle--transition-path" d="M 100 20 A 15 15 1 1 1 100 50" fill="transparent" stroke-width="8" stroke-linecap="round" data-astro-cid-3weo6hls></path><path class="hamburger-toggle--transition-path" d="M 20 80 A 15 15 1 1 1 20 50" fill="transparent" stroke-width="8" stroke-linecap="round" data-astro-cid-3weo6hls></path></svg></button></hamburger-toggle></header><main data-astro-cid-j7pv25f6><i class="fa-shake fa-hand-wave fa-light fa-3x" data-astro-cid-j7pv25f6></i><h1 data-astro-cid-j7pv25f6>Welcome!</h1><p data-astro-cid-j7pv25f6>Check out my <a href="/resume" data-astro-cid-j7pv25f6>resume</a>.</p><ul class="contact-list"><li class="contact-item"><a class="contact-link" href="mailto:chris@chrisplease.me"><span class="contact-icon-container"><i class="fa-regular fa-envelope fa-lg fa-fw"></i></span><span class="contact-link-text">
+chris@chrisplease.me
+</span></a></li><li class="contact-item"><a class="contact-link" href="https://codepen.io/ChrisPlz"><span class="contact-icon-container"><i class="fa-brands fa-codepen fa-lg fa-fw"></i></span><span class="contact-link-text">
+ChrisPlz
+</span></a></li><li class="contact-item"><a class="contact-link" href="https://github.com/ChrisPlease"><span class="contact-icon-container"><i class="fa-brands fa-github-alt fa-lg fa-fw"></i></span><span class="contact-link-text">
+ChrisPlease
+</span></a></li><li class="contact-item"><a class="contact-link" href="https://linkedin.com/in/ChrisPlease"><span class="contact-icon-container"><i class="fa-brands fa-linkedin-in fa-lg fa-fw"></i></span><span class="contact-link-text">
+ChrisPlease
+</span></a></li></ul><style>
   .contact-list {
     margin: 0;
     padding: 0;
@@ -179,7 +92,4 @@
     }
   }
 
-</style>
-	</main>
-
-	</body></html>
+</style></main></body></html>
