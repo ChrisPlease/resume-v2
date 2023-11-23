@@ -12,7 +12,8 @@
         "Ensured code quality across the Cofense UI codebases through 1:1s, code reviews, paired programming",
         "Worked across multiple projects to ensure UI team hit required deadlines",
         "Led the team in a major version update for the company's internal component styleguide",
-        "Planned the effort to migrate the company's UI to Vue3"
+        "Planned the effort to migrate the company's UI to Vue3",
+        "Implemented Component Library documentation through React and Storybook"
       ],
       "As Senior Engineer:": [
         "Served as team lead for various UI initiatives",

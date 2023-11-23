@@ -30,7 +30,7 @@ function handleTime(startDate: string, endDate?: string): string {
   <div class="experience-section--meta">
     <h2 class="experience-section--company">{data.company}</h2>
     <h3 class="experience-section--title">{data.title}</h3>
-    <time datetime={handleTime(data.startDate, data.endDate)}>
+    <time class="experience-section--time" datetime={handleTime(data.startDate, data.endDate)}>
       <span>
         {
           Intl.DateTimeFormat(
@@ -41,7 +41,7 @@ function handleTime(startDate: string, endDate?: string): string {
             }).format(new Date(data.startDate))
         }
       </span>
-      <i class="fa-solid fa-arrow-right" />
+      <i class="duration fa-solid fa-arrow-right" />
       <span>
         {
           data.endDate !== ''
@@ -71,14 +71,14 @@ function handleTime(startDate: string, endDate?: string): string {
     <ul class="responsibilities">
       {
         data.responsibilities
-          .map(resp => typeof resp === 'string'
+          .map((resp: any) => typeof resp === 'string'
             ? <li>{resp}</li>
             : Object.keys(resp).map((key) => {
               return (
                 <li>
                   {key}
                   <ul>
-                    {resp[key].map(i => <li>{i}</li>)}
+                    {resp[key].map((i: string) => <li>{i}</li>)}
                   </ul>
                 </li>
               )
@@ -149,6 +149,10 @@ function handleTime(startDate: string, endDate?: string): string {
   .experience-section--company {
     font-weight: 400;
     margin: 0 0 0.5rem;
+  }
+
+  time.experience-section--time .duration {
+    color: rgb(var(--link-color))
   }
 
   address .svg-inline--fa {
