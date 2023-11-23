@@ -3,12 +3,15 @@
   "title": "Lead Engineer",
   "location": "Denver, CO",
   "responsibilities": [
-    "Worked on various internal projects and decentralized applications on the Ethereum blockchain",
-    "Helped establish internal best practices relating to front end development and mobile application development",
+    "Maintained internal component library",
+    "Led teams designing decentralized applications on the Ethereum blockchain for clients",
+    "Established and documented organizational best practices for front end development",
     "Interaction with Web3 and the Ethereum blockchain, and the MetaMask wallet",
+    "Extensive React development",
     {
       "Libraries included:": [
         "Web3 v1",
+        "Styled Components",
         "React & React Native",
         "MetaMask"
       ]

@@ -1,10 +1,14 @@
 {
   "company": "Kenzan Media",
-  "title": "Front end engineer",
+  "title": "Senior Front End Engineer",
   "location": "Denver, CO",
   "responsibilities": [
-    "Worked on various applications including data-driven, feature-rich internal projects to large scale client web applications",
+    "Served as embedded engineer for various clients",
+    "Worked on applications including data-driven, feature-rich internal projects to large scale client web applications",
+    "Worked on both Front end and edge tier node services",
     "Led internal teams on new technology research and initiatives",
+    "Acted as subject matter expert for various accessibility and style initiatives",
+    "Extensive React and Node development",
     {
       "Utilized technologies including:": [
         "Angular 1.x and React",
@@ -12,9 +16,7 @@
         "CSS/SASS/LESS",
         "HTML5",
         "Express",
-        "MongoDB",
-        "Loopback",
-        "AWS"
+        "Docker"
       ]
     }
   ],
