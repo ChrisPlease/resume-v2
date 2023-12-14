@@ -94,7 +94,6 @@ function handleTime(startDate: string, endDate?: string): string {
   const observer = new IntersectionObserver((entry) => {
     let prevRatio = 0.0;
     entry.forEach(e => {
-      console.log(e.intersectionRatio, prevRatio, e.target);
       const meta = e.target.querySelector<HTMLElement>('.experience-section--meta')!;
       if (e.isIntersecting) {
 
@@ -198,6 +197,36 @@ function handleTime(startDate: string, endDate?: string): string {
     .experience-section--content {
       border-left: 1px solid rgba(var(--text-alt-color), 0.5);
       padding: 2rem 0 2rem 2rem;
+    }
+  }
+
+  @media print {
+    .experience-section--meta {
+      display: block;
+    }
+
+    .experience-section--company, .experience-section--title {
+      display: inline;
+    }
+
+    .experience-section--title {
+      position: relative;
+    }
+
+    .experience-section--title::before {
+      content: "//";
+      color: rgb(var(--link-color));
+      font-size: 1.5em;
+      letter-spacing: -6px;
+      margin: 0 8px;
+      position: relative;
+      left: -4px;
+      display: inline-block;
+      vertical-align: baseline;
+    }
+
+    .experience-section--time {
+      display: block;
     }
   }
 </style>

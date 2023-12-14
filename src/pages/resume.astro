@@ -13,8 +13,44 @@ const experience = (await getCollection('experience'))
 <Layout title="Chris Pruyne | Software Engineer">
   {resume.map(async (item) => {
     const { Content } = await item.render()
-    if (item.slug !== 'experience') {
+    if (item.slug === 'experience') {
       return (
+          <div class="resume-section print-only">
+            <div class="resume-section--meta">
+              <h2 class="resume-section--experience-title">{item.data.title}</h2>
+            </div>
+            <div class="resume-section--description">
+              <div class="resume-section--body">
+                <Content />
+              </div>
+            </div>
+          </div>
+          <>
+            {experience.map(async (item) => {
+              return <div class="resume-section"><Experience data={item} /></div>
+            })}
+          </>
+      )
+    }
+
+    if (item.slug === 'contact') {
+
+      return (
+        <div class={`resume-section ${item.slug}-section`}>
+          <div class="resume-section--meta">
+            <h2>{item.data.title}</h2>
+            {
+              item.data.subtitle
+                ? <h3 class="resume-section--subtitle">{item.data.subtitle}</h3>
+                : null
+            }
+          </div>
+          <Content />
+        </div>
+      )
+    }
+
+    return (
         <div class={`resume-section ${item.slug}-section`}>
           <div class="resume-section--meta">
             <h2>{item.data.title}</h2>
@@ -31,25 +67,6 @@ const experience = (await getCollection('experience'))
           </div>
         </div>
       )
-    }
-
-    return (
-        <div class="resume-section">
-          <div class="resume-section--meta">
-            <h2 class="resume-section--experience-title">{item.data.title}</h2>
-          </div>
-          <div class="resume-section--description">
-            <div class="resume-section--body">
-              <Content />
-            </div>
-          </div>
-        </div>
-        <>
-          {experience.map(async (item) => {
-            return <div class="resume-section"><Experience data={item} /></div>
-          })}
-        </>
-    )
   })}
 </Layout>
 
@@ -73,6 +90,9 @@ const experience = (await getCollection('experience'))
       justify-content: center;
       flex-direction: column;
       scroll-snap-align: start;
+    }
+    .resume-section.print-only {
+      display: none !important;
     }
   }
 
@@ -108,8 +128,12 @@ const experience = (await getCollection('experience'))
       flex-direction: row;
       align-items: baseline;
       margin-bottom: 1rem;
-
     }
+
+    .resume-section.print-only {
+      display: block !important;
+    }
+
     .resume-section.contact-section .resume-section--subtitle {
       margin-left: 1rem;
     }
@@ -119,7 +143,7 @@ const experience = (await getCollection('experience'))
       break-inside: avoid;
     }
 
-    .resume-section:not(:last-child) {
+    .resume-section:not(:last-child,.resume-section.contact-section) {
       border-bottom: 1px solid rgba(var(--text-alt-color), 0.25);
     }
   }
