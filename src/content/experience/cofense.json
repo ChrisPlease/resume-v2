@@ -4,9 +4,9 @@
   "location": "Leesburg, VA",
   "startDate": "2019-04-08T00:00:00.000Z",
   "responsibilities": [
-    "Spearheaded a team focusing on advanced TypeScript and Node.js development.",
+    "Planned and implemented several large scale migrations: TypeScript, Vue 2.x ➡ Vue 3.x, TSX, webpack ➡ vite",
     "Enhanced code quality and standards through regular code reviews and paired programming sessions.",
-    "Led the successful migration and version update of the company's UI component library to Vue3 and TypeScript.",
-    "Developed and implemented comprehensive cross-browser testing and accessibility frameworks."
+    "Managed the team responsible for internal component library major version upgrade: TSX, Vue 2.x ➡ Vue 3.x, dark mode",
+    "Developed and implemented comprehensive cross-browser testing standards and accessibility frameworks."
   ]
 }
