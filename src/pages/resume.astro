@@ -15,7 +15,7 @@ const experience = (await getCollection('experience'))
     const { Content } = await item.render()
     if (item.slug === 'experience') {
       return (
-          <div class="resume-section print-only">
+          <div class="resume-section experience-section print-only">
             <div class="resume-section--meta">
               <h2 class="resume-section--experience-title">{item.data.title}</h2>
             </div>
@@ -127,7 +127,7 @@ const experience = (await getCollection('experience'))
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .resume-section.print-only {
@@ -135,16 +135,20 @@ const experience = (await getCollection('experience'))
     }
 
     .resume-section.contact-section .resume-section--subtitle {
-      margin-left: 1rem;
+      margin-left: 0.5rem;
     }
 
     .resume-section {
-      padding: 1rem 0;
+      padding: 0.75rem 0;
       break-inside: avoid;
     }
 
-    .resume-section:not(:last-child,.resume-section.contact-section) {
+    .resume-section:not(:last-child,.resume-section.contact-section,.resume-section.experience-section) {
       border-bottom: 1px solid rgba(var(--text-alt-color), 0.25);
+    }
+
+    .resume-section.experience-section {
+      display: none !important;
     }
   }
 </style>
