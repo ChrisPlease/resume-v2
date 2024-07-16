@@ -30,37 +30,39 @@ function handleTime(startDate: string, endDate?: string): string {
   <div class="experience-section--meta">
     <h2 class="experience-section--company">{data.company}</h2>
     <h3 class="experience-section--title">{data.title}</h3>
-    <time class="experience-section--time" datetime={handleTime(data.startDate, data.endDate)}>
-      <span>
-        {
-          Intl.DateTimeFormat(
-            'en-US',
-            {
-              month: '2-digit',
-              year: 'numeric',
-            }).format(new Date(data.startDate))
-        }
-      </span>
-      <i class="duration fa-solid fa-arrow-right" />
-      <span>
-        {
-          data.endDate !== ''
-            ? Intl.DateTimeFormat(
-                'en-US',
-                {
-                  month: '2-digit',
-                  year: 'numeric',
-                }).format(new Date(data.endDate))
-            : 'Current'
-        }
-      </span>
-    </time>
-    <address>
-      <i class="location-icon fa-light fa-location-dot fa-fw" />
-      <span>
-        {data.location}
-      </span>
-    </address>
+    <div class="experience-section--info">
+      <address>
+        <i class="location-icon fa-light fa-location-dot fa-fw" />
+        <span>
+          {data.location}
+        </span>
+      </address>
+      <time class="experience-section--time" datetime={handleTime(data.startDate, data.endDate)}>
+        <span>
+          {
+            Intl.DateTimeFormat(
+              'en-US',
+              {
+                month: '2-digit',
+                year: 'numeric',
+              }).format(new Date(data.startDate))
+          }
+        </span>
+        <i class="duration fa-solid fa-arrow-right" />
+        <span>
+          {
+            data.endDate !== ''
+              ? Intl.DateTimeFormat(
+                  'en-US',
+                  {
+                    month: '2-digit',
+                    year: 'numeric',
+                  }).format(new Date(data.endDate))
+              : 'Current'
+          }
+        </span>
+      </time>
+    </div>
   </div>
   <div class="experience-section--content">
     {data.description ? (
@@ -211,6 +213,11 @@ function handleTime(startDate: string, endDate?: string): string {
 
     .experience-section--title {
       position: relative;
+    }
+
+    .experience-section--info {
+      display: flex;
+      gap: 5mm;
     }
 
     .experience-section--title::before {

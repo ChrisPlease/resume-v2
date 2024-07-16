@@ -39,7 +39,7 @@ const { title } = Astro.props;
         storedColor ? storedColor : 'green',
       );
     </script>
-    <Header />
+    <!-- <Header /> -->
 		<slot />
 	</body>
 </html>
@@ -70,7 +70,7 @@ const { title } = Astro.props;
     --accent-purple-1: 140, 0, 201;
     --accent-purple-2: 111, 0, 158;
 
-    --bg-size: 4vw;
+    --bg-size: 2em;
     --bg-position: calc(var(--bg-size) / 2) calc(var(--bg-size) / 2);
     --bg-offset: calc(var(--bg-size) / 3);
   }
@@ -258,7 +258,7 @@ const { title } = Astro.props;
     }
 
     h1 {
-      font-size: 18pt;
+      font-size: 16pt;
     }
 
     h2 {
@@ -273,6 +273,13 @@ const { title } = Astro.props;
       margin-bottom: 0.5em;
     }
   }
+
+  @page {
+    size: auto;   /* auto is the initial value */
+
+    /* this affects the margin in the printer settings */
+    margin: 10mm 10mm 10mm 10mm;
+}
 
   .sr-only {
     position: absolute;
