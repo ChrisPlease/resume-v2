@@ -1,13 +1,15 @@
 {
   "company": "Cofense, Inc",
-  "title": "UI Manager/UI Engineer III",
-  "location": "Leesburg, VA",
+  "title": "Technical UI Manager",
+  "location": "Leesburg, VA (Remote)",
   "startDate": "2019-04-08T00:00:00.000Z",
   "responsibilities": [
-    "Planned and implemented several large scale migrations: TypeScript, Vue 2.x ➡ Vue 3.x, TSX, webpack ➡ vite.",
-    "Enhanced code quality and standards through regular code reviews and paired programming sessions.",
-    "Managed the team responsible for internal component library major version upgrade: TSX, Vue 2.x ➡ Vue 3.x, Storybook, dark mode.",
-    "Developed and implemented comprehensive cross-browser testing standards and accessibility frameworks.",
+    "Coordinated several large scale migrations for improving DX and end user experience.",
+    "Built feature rich dashboards for multiple high visibility SaaS Products.",
+    "Enhanced code quality and standards through regular code reviews, 1:1's, and paired programming sessions.",
+    "Released 2 major versions of the internal component library.",
+    "Implemented browser security best practices for the UI team (CORS, CSP, HSTS).",
+    "Designed and documented comprehensive testing patterns and best practices.",
     "Collaborated with back-end and design teams to develop and maintain the UI of cloud-based applications."
   ]
 }
