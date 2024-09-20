@@ -1,9 +1,10 @@
 {
   "company": "Ideas By Nature",
   "title": "Lead Engineer",
-  "location": "Denver, CO",
+  "location": "Denver, CO (Hybrid)",
   "responsibilities": [
     "Managed development of decentralized applications on the Ethereum blockchain.",
+    "Created complex, customized React applications for various clients.",
     "Oversaw the maintenance of React and TypeScript-based internal component libraries.",
     "Formulated front-end best practices and documentation for team-wide adherence."
   ],

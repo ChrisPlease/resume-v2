@@ -163,74 +163,6 @@ const { title } = Astro.props;
       min-height: 100vh;
       overflow: scroll;
       background:
-        repeating-linear-gradient(
-          135deg,
-          rgb(var(--text-color)),
-          rgb(var(--text-color)) 25%,
-          transparent 25%,
-          transparent
-        ) repeat-y var(--bg-size) 0/var(--bg-position),
-        repeating-linear-gradient(
-          45deg,
-          rgb(var(--text-color)),
-          rgb(var(--text-color)) 25%,
-          transparent 25%,
-          transparent
-        ) repeat-y var(--bg-size) 0/var(--bg-position),
-        repeating-linear-gradient(
-          135deg,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.3) 25%,
-          transparent 35%,
-          transparent
-        ) repeat-y var(--bg-size) 0/var(--bg-position),
-        repeating-linear-gradient(
-          45deg,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.3) 25%,
-          transparent 35%,
-          transparent
-        ) repeat-y var(--bg-size) 0/var(--bg-position),
-        repeating-linear-gradient(
-          -135deg,
-          rgb(var(--bg-color)),
-          rgb(var(--bg-color)) 25%,
-          transparent 25%,
-          transparent
-        ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
-        repeating-linear-gradient(
-          -45deg,
-          rgb(var(--bg-color)),
-          rgb(var(--bg-color)) 25%,
-          transparent 25%,
-          transparent
-        ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
-        repeating-linear-gradient(
-          -135deg,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.3) 25%,
-          transparent 35%,
-          transparent
-        ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
-        repeating-linear-gradient(
-          -45deg,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.3) 25%,
-          transparent 35%,
-          transparent
-        ) repeat-y var(--bg-size) var(--bg-offset)/var(--bg-position),
-        linear-gradient(
-          to right,
-          rgb(var(--text-color)),
-          rgb(var(--text-color)) var(--bg-size),
-          transparent var(--bg-size),
-          transparent
-        ) repeat-y 0 0/calc(var(--bg-size) * 4) 100%,
-        linear-gradient(
-          to bottom,
-          rgb(var(--link-color)),
-          rgb(var(--link-hover-color))
-        ) fixed repeat-y 0 0/calc(var(--bg-size) * 1.5) 100%,
         rgb(var(--bg-color));
     }
 
@@ -262,7 +194,7 @@ const { title } = Astro.props;
     }
 
     h2 {
-      font-size: 14pt;
+      font-size: 12pt;
     }
 
     h3 {
@@ -270,7 +202,7 @@ const { title } = Astro.props;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.25em;
     }
   }
 
@@ -278,7 +210,7 @@ const { title } = Astro.props;
     size: auto;   /* auto is the initial value */
 
     /* this affects the margin in the printer settings */
-    margin: 10mm 10mm 10mm 10mm;
+    margin: 5mm 10mm 10mm 10mm;
 }
 
   .sr-only {

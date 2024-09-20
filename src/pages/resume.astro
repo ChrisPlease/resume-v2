@@ -127,11 +127,15 @@ const experience = (await getCollection('experience'))
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
 
     .resume-section.print-only {
       display: block !important;
+    }
+
+    .resume-section.contact-section .resume-section--meta {
+      margin-bottom: 0;
     }
 
     .resume-section.contact-section .resume-section--subtitle {
